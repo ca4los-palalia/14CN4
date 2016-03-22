@@ -1,0 +1,6 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<window>
+	<div sclass="contentPage lineaVerticalGris" zclass="divCenter" >
+		<image src="/images/UI/workspaceArea/welcome.jpg" />
+	</div>
+</window>	

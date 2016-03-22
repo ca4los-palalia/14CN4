@@ -1,0 +1,2414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://skeleton.ws.iacna.cplsys.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://skeleton.ws.iacna.cplsys.com" xmlns:intf="http://skeleton.ws.iacna.cplsys.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://skeleton.ws.iacna.cplsys.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="isIngredienteAsignadoAPrepesado">
+    <complexType>
+     <sequence>
+      <element name="ingrediente" type="xsd:int"/>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isIngredienteAsignadoAPrepesadoResponse">
+    <complexType>
+     <sequence>
+      <element name="isIngredienteAsignadoAPrepesadoReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTotalIngredientesPorBascula">
+    <complexType>
+     <sequence>
+      <element name="idFormula" type="xsd:string"/>
+      <element name="bascula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTotalIngredientesPorBasculaResponse">
+    <complexType>
+     <sequence>
+      <element name="getTotalIngredientesPorBasculaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateSumatoriaBatchPesoObtenido">
+    <complexType>
+     <sequence>
+      <element name="idFormula" type="xsd:string"/>
+      <element name="bascula" type="xsd:string"/>
+      <element name="descripcion" type="xsd:string"/>
+      <element name="nuevoBatch" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateSumatoriaBatchPesoObtenidoResponse">
+    <complexType/>
+   </element>
+   <element name="getSavedBatchsRegistroProduccion">
+    <complexType>
+     <sequence>
+      <element name="idRegistroProduccion" type="xsd:int"/>
+      <element name="pesoObtenido" type="xsd:double"/>
+      <element name="addressMemory" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSavedBatchsRegistroProduccionResponse">
+    <complexType>
+     <sequence>
+      <element name="getSavedBatchsRegistroProduccionReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUltimoRegistroBacthProduccion">
+    <complexType/>
+   </element>
+   <element name="getUltimoRegistroBacthProduccionResponse">
+    <complexType>
+     <sequence>
+      <element name="getUltimoRegistroBacthProduccionReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getIdFormula">
+    <complexType/>
+   </element>
+   <element name="getIdFormulaResponse">
+    <complexType>
+     <sequence>
+      <element name="getIdFormulaReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateBatch">
+    <complexType>
+     <sequence>
+      <element name="batchActual" type="xsd:int"/>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateBatchResponse">
+    <complexType/>
+   </element>
+   <element name="setBatchsCompleteBascula">
+    <complexType>
+     <sequence>
+      <element name="idBascula" type="xsd:int"/>
+      <element name="batchs" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setBatchsCompleteBasculaResponse">
+    <complexType/>
+   </element>
+   <element name="getBatchsCompleteBascula">
+    <complexType>
+     <sequence>
+      <element name="idBascula" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBatchsCompleteBasculaResponse">
+    <complexType>
+     <sequence>
+      <element name="getBatchsCompleteBasculaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSumatoriaBatchPesoObtenido">
+    <complexType>
+     <sequence>
+      <element name="idFormula" type="xsd:string"/>
+      <element name="bascula" type="xsd:string"/>
+      <element name="descripcion" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSumatoriaBatchPesoObtenidoResponse">
+    <complexType>
+     <sequence>
+      <element name="getSumatoriaBatchPesoObtenidoReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateTotalBatchProcesados">
+    <complexType>
+     <sequence>
+      <element name="idFormula" type="xsd:string"/>
+      <element name="bascula" type="xsd:string"/>
+      <element name="descripcion" type="xsd:string"/>
+      <element name="nuevoBatch" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateTotalBatchProcesadosResponse">
+    <complexType/>
+   </element>
+   <element name="getIdRegistroProduccion">
+    <complexType>
+     <sequence>
+      <element name="ingrediente" type="xsd:int"/>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getIdRegistroProduccionResponse">
+    <complexType>
+     <sequence>
+      <element name="getIdRegistroProduccionReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTotalBachtProcesados">
+    <complexType>
+     <sequence>
+      <element name="idFormula" type="xsd:string"/>
+      <element name="bascula" type="xsd:string"/>
+      <element name="descripcion" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTotalBachtProcesadosResponse">
+    <complexType>
+     <sequence>
+      <element name="getTotalBachtProcesadosReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="verificarFormulaCargadaEnPLC">
+    <complexType>
+     <sequence>
+      <element name="formula" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="verificarFormulaCargadaEnPLCResponse">
+    <complexType>
+     <sequence>
+      <element name="verificarFormulaCargadaEnPLCReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="formulaRegistradaEnPLC">
+    <complexType>
+     <sequence>
+      <element name="formula" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="formulaRegistradaEnPLCResponse">
+    <complexType/>
+   </element>
+   <element name="isBasculaModoManual">
+    <complexType>
+     <sequence>
+      <element name="bascula" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isBasculaModoManualResponse">
+    <complexType>
+     <sequence>
+      <element name="isBasculaModoManualReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isBasculaPrepesado">
+    <complexType>
+     <sequence>
+      <element name="bascula" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isBasculaPrepesadoResponse">
+    <complexType>
+     <sequence>
+      <element name="isBasculaPrepesadoReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDescripcionBascula">
+    <complexType>
+     <sequence>
+      <element name="bascula" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDescripcionBasculaResponse">
+    <complexType>
+     <sequence>
+      <element name="getDescripcionBasculaReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isBasculaHabilitada">
+    <complexType>
+     <sequence>
+      <element name="bascula" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isBasculaHabilitadaResponse">
+    <complexType>
+     <sequence>
+      <element name="isBasculaHabilitadaReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBasculaNombre">
+    <complexType>
+     <sequence>
+      <element name="bascula" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBasculaNombreResponse">
+    <complexType>
+     <sequence>
+      <element name="getBasculaNombreReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deshabilitarBascula">
+    <complexType>
+     <sequence>
+      <element name="bascula" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deshabilitarBasculaResponse">
+    <complexType/>
+   </element>
+   <element name="habilitarBascula">
+    <complexType>
+     <sequence>
+      <element name="bascula" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="habilitarBasculaResponse">
+    <complexType/>
+   </element>
+   <element name="setDescripcionBascula">
+    <complexType>
+     <sequence>
+      <element name="bascula" type="xsd:int"/>
+      <element name="descripcion" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setDescripcionBasculaResponse">
+    <complexType/>
+   </element>
+   <element name="getTurnoFormula">
+    <complexType/>
+   </element>
+   <element name="getTurnoFormulaResponse">
+    <complexType>
+     <sequence>
+      <element name="getTurnoFormulaReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isFormulaCancelada">
+    <complexType>
+     <sequence>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isFormulaCanceladaResponse">
+    <complexType>
+     <sequence>
+      <element name="isFormulaCanceladaReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBatchsFormula">
+    <complexType>
+     <sequence>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBatchsFormulaResponse">
+    <complexType>
+     <sequence>
+      <element name="getBatchsFormulaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getNombreIngrediente">
+    <complexType>
+     <sequence>
+      <element name="ingrediente" type="xsd:int"/>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getNombreIngredienteResponse">
+    <complexType>
+     <sequence>
+      <element name="getNombreIngredienteReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBasculaIngrediente">
+    <complexType>
+     <sequence>
+      <element name="ingrediente" type="xsd:int"/>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBasculaIngredienteResponse">
+    <complexType>
+     <sequence>
+      <element name="getBasculaIngredienteReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getToleranciaMinima">
+    <complexType>
+     <sequence>
+      <element name="ingrediente" type="xsd:int"/>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getToleranciaMinimaResponse">
+    <complexType>
+     <sequence>
+      <element name="getToleranciaMinimaReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getToleranciaMaxima">
+    <complexType>
+     <sequence>
+      <element name="ingrediente" type="xsd:int"/>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getToleranciaMaximaResponse">
+    <complexType>
+     <sequence>
+      <element name="getToleranciaMaximaReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getNombreFormula">
+    <complexType>
+     <sequence>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getNombreFormulaResponse">
+    <complexType>
+     <sequence>
+      <element name="getNombreFormulaReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isFormulaDespachada">
+    <complexType>
+     <sequence>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isFormulaDespachadaResponse">
+    <complexType>
+     <sequence>
+      <element name="isFormulaDespachadaReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMpIngrediente">
+    <complexType>
+     <sequence>
+      <element name="ingrediente" type="xsd:int"/>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMpIngredienteResponse">
+    <complexType>
+     <sequence>
+      <element name="getMpIngredienteReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setModoManualBascula">
+    <complexType>
+     <sequence>
+      <element name="bascula" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setModoManualBasculaResponse">
+    <complexType/>
+   </element>
+   <element name="setFormulaDespachada">
+    <complexType>
+     <sequence>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setFormulaDespachadaResponse">
+    <complexType/>
+   </element>
+   <element name="isFormulaPrepesada">
+    <complexType>
+     <sequence>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isFormulaPrepesadaResponse">
+    <complexType>
+     <sequence>
+      <element name="isFormulaPrepesadaReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="saveBatchsRegistroProduccion">
+    <complexType>
+     <sequence>
+      <element name="idRegistroProduccion" type="xsd:int"/>
+      <element name="pesoObtenido" type="xsd:double"/>
+      <element name="addressMemory" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="saveBatchsRegistroProduccionResponse">
+    <complexType>
+     <sequence>
+      <element name="saveBatchsRegistroProduccionReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="guardarRegistroProduccion">
+    <complexType>
+     <sequence>
+      <element name="nombreFormula" type="xsd:string"/>
+      <element name="basculaAsignada" type="xsd:string"/>
+      <element name="mp" type="xsd:string"/>
+      <element name="descripcion" type="xsd:string"/>
+      <element name="especificacionPeso" type="xsd:double"/>
+      <element name="toleranciaMinima" type="xsd:double"/>
+      <element name="toleranciaMaxima" type="xsd:double"/>
+      <element name="sumatoriaBatchsPesosObtenidos" type="xsd:int"/>
+      <element name="turno" type="xsd:string"/>
+      <element name="totalBatchProcesados" type="xsd:double"/>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="guardarRegistroProduccionResponse">
+    <complexType>
+     <sequence>
+      <element name="guardarRegistroProduccionReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getEspecificacionIngrediente">
+    <complexType>
+     <sequence>
+      <element name="ingrediente" type="xsd:int"/>
+      <element name="idFormula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getEspecificacionIngredienteResponse">
+    <complexType>
+     <sequence>
+      <element name="getEspecificacionIngredienteReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTotalIngredientesFormula">
+    <complexType>
+     <sequence>
+      <element name="formula" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTotalIngredientesFormulaResponse">
+    <complexType>
+     <sequence>
+      <element name="getTotalIngredientesFormulaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getDescripcionBasculaRequest">
+
+      <wsdl:part element="impl:getDescripcionBascula" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBasculaNombreRequest">
+
+      <wsdl:part element="impl:getBasculaNombre" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isFormulaCanceladaResponse">
+
+      <wsdl:part element="impl:isFormulaCanceladaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="habilitarBasculaResponse">
+
+      <wsdl:part element="impl:habilitarBasculaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="habilitarBasculaRequest">
+
+      <wsdl:part element="impl:habilitarBascula" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isBasculaPrepesadoRequest">
+
+      <wsdl:part element="impl:isBasculaPrepesado" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNombreIngredienteRequest">
+
+      <wsdl:part element="impl:getNombreIngrediente" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setBatchsCompleteBasculaRequest">
+
+      <wsdl:part element="impl:setBatchsCompleteBascula" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTotalIngredientesPorBasculaRequest">
+
+      <wsdl:part element="impl:getTotalIngredientesPorBascula" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deshabilitarBasculaRequest">
+
+      <wsdl:part element="impl:deshabilitarBascula" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSavedBatchsRegistroProduccionResponse">
+
+      <wsdl:part element="impl:getSavedBatchsRegistroProduccionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getToleranciaMinimaResponse">
+
+      <wsdl:part element="impl:getToleranciaMinimaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isBasculaHabilitadaRequest">
+
+      <wsdl:part element="impl:isBasculaHabilitada" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBasculaIngredienteRequest">
+
+      <wsdl:part element="impl:getBasculaIngrediente" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="verificarFormulaCargadaEnPLCRequest">
+
+      <wsdl:part element="impl:verificarFormulaCargadaEnPLC" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTotalBachtProcesadosRequest">
+
+      <wsdl:part element="impl:getTotalBachtProcesados" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="formulaRegistradaEnPLCRequest">
+
+      <wsdl:part element="impl:formulaRegistradaEnPLC" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEspecificacionIngredienteResponse">
+
+      <wsdl:part element="impl:getEspecificacionIngredienteResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateBatchRequest">
+
+      <wsdl:part element="impl:updateBatch" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="saveBatchsRegistroProduccionResponse">
+
+      <wsdl:part element="impl:saveBatchsRegistroProduccionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNombreIngredienteResponse">
+
+      <wsdl:part element="impl:getNombreIngredienteResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIdFormulaResponse">
+
+      <wsdl:part element="impl:getIdFormulaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIdRegistroProduccionResponse">
+
+      <wsdl:part element="impl:getIdRegistroProduccionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSumatoriaBatchPesoObtenidoRequest">
+
+      <wsdl:part element="impl:getSumatoriaBatchPesoObtenido" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTotalIngredientesPorBasculaResponse">
+
+      <wsdl:part element="impl:getTotalIngredientesPorBasculaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateTotalBatchProcesadosResponse">
+
+      <wsdl:part element="impl:updateTotalBatchProcesadosResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setBatchsCompleteBasculaResponse">
+
+      <wsdl:part element="impl:setBatchsCompleteBasculaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isIngredienteAsignadoAPrepesadoRequest">
+
+      <wsdl:part element="impl:isIngredienteAsignadoAPrepesado" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deshabilitarBasculaResponse">
+
+      <wsdl:part element="impl:deshabilitarBasculaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isFormulaDespachadaRequest">
+
+      <wsdl:part element="impl:isFormulaDespachada" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setDescripcionBasculaResponse">
+
+      <wsdl:part element="impl:setDescripcionBasculaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getToleranciaMaximaRequest">
+
+      <wsdl:part element="impl:getToleranciaMaxima" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEspecificacionIngredienteRequest">
+
+      <wsdl:part element="impl:getEspecificacionIngrediente" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isBasculaHabilitadaResponse">
+
+      <wsdl:part element="impl:isBasculaHabilitadaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMpIngredienteResponse">
+
+      <wsdl:part element="impl:getMpIngredienteResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getToleranciaMinimaRequest">
+
+      <wsdl:part element="impl:getToleranciaMinima" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUltimoRegistroBacthProduccionRequest">
+
+      <wsdl:part element="impl:getUltimoRegistroBacthProduccion" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTotalIngredientesFormulaRequest">
+
+      <wsdl:part element="impl:getTotalIngredientesFormula" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isFormulaCanceladaRequest">
+
+      <wsdl:part element="impl:isFormulaCancelada" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setDescripcionBasculaRequest">
+
+      <wsdl:part element="impl:setDescripcionBascula" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isFormulaPrepesadaResponse">
+
+      <wsdl:part element="impl:isFormulaPrepesadaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="guardarRegistroProduccionRequest">
+
+      <wsdl:part element="impl:guardarRegistroProduccion" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isBasculaPrepesadoResponse">
+
+      <wsdl:part element="impl:isBasculaPrepesadoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="formulaRegistradaEnPLCResponse">
+
+      <wsdl:part element="impl:formulaRegistradaEnPLCResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIdFormulaRequest">
+
+      <wsdl:part element="impl:getIdFormula" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="guardarRegistroProduccionResponse">
+
+      <wsdl:part element="impl:guardarRegistroProduccionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNombreFormulaRequest">
+
+      <wsdl:part element="impl:getNombreFormula" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getToleranciaMaximaResponse">
+
+      <wsdl:part element="impl:getToleranciaMaximaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBatchsFormulaResponse">
+
+      <wsdl:part element="impl:getBatchsFormulaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTurnoFormulaRequest">
+
+      <wsdl:part element="impl:getTurnoFormula" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setModoManualBasculaResponse">
+
+      <wsdl:part element="impl:setModoManualBasculaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateSumatoriaBatchPesoObtenidoRequest">
+
+      <wsdl:part element="impl:updateSumatoriaBatchPesoObtenido" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isBasculaModoManualRequest">
+
+      <wsdl:part element="impl:isBasculaModoManual" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSumatoriaBatchPesoObtenidoResponse">
+
+      <wsdl:part element="impl:getSumatoriaBatchPesoObtenidoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMpIngredienteRequest">
+
+      <wsdl:part element="impl:getMpIngrediente" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateSumatoriaBatchPesoObtenidoResponse">
+
+      <wsdl:part element="impl:updateSumatoriaBatchPesoObtenidoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTurnoFormulaResponse">
+
+      <wsdl:part element="impl:getTurnoFormulaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setModoManualBasculaRequest">
+
+      <wsdl:part element="impl:setModoManualBascula" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBatchsCompleteBasculaResponse">
+
+      <wsdl:part element="impl:getBatchsCompleteBasculaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIdRegistroProduccionRequest">
+
+      <wsdl:part element="impl:getIdRegistroProduccion" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBasculaIngredienteResponse">
+
+      <wsdl:part element="impl:getBasculaIngredienteResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isBasculaModoManualResponse">
+
+      <wsdl:part element="impl:isBasculaModoManualResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isIngredienteAsignadoAPrepesadoResponse">
+
+      <wsdl:part element="impl:isIngredienteAsignadoAPrepesadoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setFormulaDespachadaRequest">
+
+      <wsdl:part element="impl:setFormulaDespachada" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBatchsFormulaRequest">
+
+      <wsdl:part element="impl:getBatchsFormula" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUltimoRegistroBacthProduccionResponse">
+
+      <wsdl:part element="impl:getUltimoRegistroBacthProduccionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTotalIngredientesFormulaResponse">
+
+      <wsdl:part element="impl:getTotalIngredientesFormulaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setFormulaDespachadaResponse">
+
+      <wsdl:part element="impl:setFormulaDespachadaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTotalBachtProcesadosResponse">
+
+      <wsdl:part element="impl:getTotalBachtProcesadosResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isFormulaPrepesadaRequest">
+
+      <wsdl:part element="impl:isFormulaPrepesada" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBasculaNombreResponse">
+
+      <wsdl:part element="impl:getBasculaNombreResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNombreFormulaResponse">
+
+      <wsdl:part element="impl:getNombreFormulaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="saveBatchsRegistroProduccionRequest">
+
+      <wsdl:part element="impl:saveBatchsRegistroProduccion" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSavedBatchsRegistroProduccionRequest">
+
+      <wsdl:part element="impl:getSavedBatchsRegistroProduccion" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDescripcionBasculaResponse">
+
+      <wsdl:part element="impl:getDescripcionBasculaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateBatchResponse">
+
+      <wsdl:part element="impl:updateBatchResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isFormulaDespachadaResponse">
+
+      <wsdl:part element="impl:isFormulaDespachadaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateTotalBatchProcesadosRequest">
+
+      <wsdl:part element="impl:updateTotalBatchProcesados" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="verificarFormulaCargadaEnPLCResponse">
+
+      <wsdl:part element="impl:verificarFormulaCargadaEnPLCResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBatchsCompleteBasculaRequest">
+
+      <wsdl:part element="impl:getBatchsCompleteBascula" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="WSiacna">
+
+      <wsdl:operation name="isIngredienteAsignadoAPrepesado">
+
+         <wsdl:input message="impl:isIngredienteAsignadoAPrepesadoRequest" name="isIngredienteAsignadoAPrepesadoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isIngredienteAsignadoAPrepesadoResponse" name="isIngredienteAsignadoAPrepesadoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTotalIngredientesPorBascula">
+
+         <wsdl:input message="impl:getTotalIngredientesPorBasculaRequest" name="getTotalIngredientesPorBasculaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTotalIngredientesPorBasculaResponse" name="getTotalIngredientesPorBasculaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateSumatoriaBatchPesoObtenido">
+
+         <wsdl:input message="impl:updateSumatoriaBatchPesoObtenidoRequest" name="updateSumatoriaBatchPesoObtenidoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateSumatoriaBatchPesoObtenidoResponse" name="updateSumatoriaBatchPesoObtenidoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSavedBatchsRegistroProduccion">
+
+         <wsdl:input message="impl:getSavedBatchsRegistroProduccionRequest" name="getSavedBatchsRegistroProduccionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSavedBatchsRegistroProduccionResponse" name="getSavedBatchsRegistroProduccionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUltimoRegistroBacthProduccion">
+
+         <wsdl:input message="impl:getUltimoRegistroBacthProduccionRequest" name="getUltimoRegistroBacthProduccionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUltimoRegistroBacthProduccionResponse" name="getUltimoRegistroBacthProduccionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getIdFormula">
+
+         <wsdl:input message="impl:getIdFormulaRequest" name="getIdFormulaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getIdFormulaResponse" name="getIdFormulaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateBatch">
+
+         <wsdl:input message="impl:updateBatchRequest" name="updateBatchRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateBatchResponse" name="updateBatchResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setBatchsCompleteBascula">
+
+         <wsdl:input message="impl:setBatchsCompleteBasculaRequest" name="setBatchsCompleteBasculaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setBatchsCompleteBasculaResponse" name="setBatchsCompleteBasculaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBatchsCompleteBascula">
+
+         <wsdl:input message="impl:getBatchsCompleteBasculaRequest" name="getBatchsCompleteBasculaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getBatchsCompleteBasculaResponse" name="getBatchsCompleteBasculaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSumatoriaBatchPesoObtenido">
+
+         <wsdl:input message="impl:getSumatoriaBatchPesoObtenidoRequest" name="getSumatoriaBatchPesoObtenidoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSumatoriaBatchPesoObtenidoResponse" name="getSumatoriaBatchPesoObtenidoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateTotalBatchProcesados">
+
+         <wsdl:input message="impl:updateTotalBatchProcesadosRequest" name="updateTotalBatchProcesadosRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateTotalBatchProcesadosResponse" name="updateTotalBatchProcesadosResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getIdRegistroProduccion">
+
+         <wsdl:input message="impl:getIdRegistroProduccionRequest" name="getIdRegistroProduccionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getIdRegistroProduccionResponse" name="getIdRegistroProduccionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTotalBachtProcesados">
+
+         <wsdl:input message="impl:getTotalBachtProcesadosRequest" name="getTotalBachtProcesadosRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTotalBachtProcesadosResponse" name="getTotalBachtProcesadosResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="verificarFormulaCargadaEnPLC">
+
+         <wsdl:input message="impl:verificarFormulaCargadaEnPLCRequest" name="verificarFormulaCargadaEnPLCRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:verificarFormulaCargadaEnPLCResponse" name="verificarFormulaCargadaEnPLCResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="formulaRegistradaEnPLC">
+
+         <wsdl:input message="impl:formulaRegistradaEnPLCRequest" name="formulaRegistradaEnPLCRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:formulaRegistradaEnPLCResponse" name="formulaRegistradaEnPLCResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isBasculaModoManual">
+
+         <wsdl:input message="impl:isBasculaModoManualRequest" name="isBasculaModoManualRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isBasculaModoManualResponse" name="isBasculaModoManualResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isBasculaPrepesado">
+
+         <wsdl:input message="impl:isBasculaPrepesadoRequest" name="isBasculaPrepesadoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isBasculaPrepesadoResponse" name="isBasculaPrepesadoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDescripcionBascula">
+
+         <wsdl:input message="impl:getDescripcionBasculaRequest" name="getDescripcionBasculaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getDescripcionBasculaResponse" name="getDescripcionBasculaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isBasculaHabilitada">
+
+         <wsdl:input message="impl:isBasculaHabilitadaRequest" name="isBasculaHabilitadaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isBasculaHabilitadaResponse" name="isBasculaHabilitadaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBasculaNombre">
+
+         <wsdl:input message="impl:getBasculaNombreRequest" name="getBasculaNombreRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getBasculaNombreResponse" name="getBasculaNombreResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deshabilitarBascula">
+
+         <wsdl:input message="impl:deshabilitarBasculaRequest" name="deshabilitarBasculaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deshabilitarBasculaResponse" name="deshabilitarBasculaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="habilitarBascula">
+
+         <wsdl:input message="impl:habilitarBasculaRequest" name="habilitarBasculaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:habilitarBasculaResponse" name="habilitarBasculaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setDescripcionBascula">
+
+         <wsdl:input message="impl:setDescripcionBasculaRequest" name="setDescripcionBasculaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setDescripcionBasculaResponse" name="setDescripcionBasculaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTurnoFormula">
+
+         <wsdl:input message="impl:getTurnoFormulaRequest" name="getTurnoFormulaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTurnoFormulaResponse" name="getTurnoFormulaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isFormulaCancelada">
+
+         <wsdl:input message="impl:isFormulaCanceladaRequest" name="isFormulaCanceladaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isFormulaCanceladaResponse" name="isFormulaCanceladaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBatchsFormula">
+
+         <wsdl:input message="impl:getBatchsFormulaRequest" name="getBatchsFormulaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getBatchsFormulaResponse" name="getBatchsFormulaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNombreIngrediente">
+
+         <wsdl:input message="impl:getNombreIngredienteRequest" name="getNombreIngredienteRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getNombreIngredienteResponse" name="getNombreIngredienteResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBasculaIngrediente">
+
+         <wsdl:input message="impl:getBasculaIngredienteRequest" name="getBasculaIngredienteRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getBasculaIngredienteResponse" name="getBasculaIngredienteResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getToleranciaMinima">
+
+         <wsdl:input message="impl:getToleranciaMinimaRequest" name="getToleranciaMinimaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getToleranciaMinimaResponse" name="getToleranciaMinimaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getToleranciaMaxima">
+
+         <wsdl:input message="impl:getToleranciaMaximaRequest" name="getToleranciaMaximaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getToleranciaMaximaResponse" name="getToleranciaMaximaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNombreFormula">
+
+         <wsdl:input message="impl:getNombreFormulaRequest" name="getNombreFormulaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getNombreFormulaResponse" name="getNombreFormulaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isFormulaDespachada">
+
+         <wsdl:input message="impl:isFormulaDespachadaRequest" name="isFormulaDespachadaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isFormulaDespachadaResponse" name="isFormulaDespachadaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMpIngrediente">
+
+         <wsdl:input message="impl:getMpIngredienteRequest" name="getMpIngredienteRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMpIngredienteResponse" name="getMpIngredienteResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setModoManualBascula">
+
+         <wsdl:input message="impl:setModoManualBasculaRequest" name="setModoManualBasculaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setModoManualBasculaResponse" name="setModoManualBasculaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setFormulaDespachada">
+
+         <wsdl:input message="impl:setFormulaDespachadaRequest" name="setFormulaDespachadaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setFormulaDespachadaResponse" name="setFormulaDespachadaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isFormulaPrepesada">
+
+         <wsdl:input message="impl:isFormulaPrepesadaRequest" name="isFormulaPrepesadaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isFormulaPrepesadaResponse" name="isFormulaPrepesadaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="saveBatchsRegistroProduccion">
+
+         <wsdl:input message="impl:saveBatchsRegistroProduccionRequest" name="saveBatchsRegistroProduccionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:saveBatchsRegistroProduccionResponse" name="saveBatchsRegistroProduccionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="guardarRegistroProduccion">
+
+         <wsdl:input message="impl:guardarRegistroProduccionRequest" name="guardarRegistroProduccionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:guardarRegistroProduccionResponse" name="guardarRegistroProduccionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEspecificacionIngrediente">
+
+         <wsdl:input message="impl:getEspecificacionIngredienteRequest" name="getEspecificacionIngredienteRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getEspecificacionIngredienteResponse" name="getEspecificacionIngredienteResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTotalIngredientesFormula">
+
+         <wsdl:input message="impl:getTotalIngredientesFormulaRequest" name="getTotalIngredientesFormulaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTotalIngredientesFormulaResponse" name="getTotalIngredientesFormulaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="WSiacnaSoapBinding" type="impl:WSiacna">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="isIngredienteAsignadoAPrepesado">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isIngredienteAsignadoAPrepesadoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isIngredienteAsignadoAPrepesadoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTotalIngredientesPorBascula">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTotalIngredientesPorBasculaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTotalIngredientesPorBasculaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateSumatoriaBatchPesoObtenido">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateSumatoriaBatchPesoObtenidoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateSumatoriaBatchPesoObtenidoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSavedBatchsRegistroProduccion">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSavedBatchsRegistroProduccionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSavedBatchsRegistroProduccionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUltimoRegistroBacthProduccion">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUltimoRegistroBacthProduccionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUltimoRegistroBacthProduccionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getIdFormula">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getIdFormulaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getIdFormulaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateBatch">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateBatchRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateBatchResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setBatchsCompleteBascula">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setBatchsCompleteBasculaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setBatchsCompleteBasculaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBatchsCompleteBascula">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBatchsCompleteBasculaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBatchsCompleteBasculaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSumatoriaBatchPesoObtenido">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSumatoriaBatchPesoObtenidoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSumatoriaBatchPesoObtenidoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateTotalBatchProcesados">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateTotalBatchProcesadosRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateTotalBatchProcesadosResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getIdRegistroProduccion">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getIdRegistroProduccionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getIdRegistroProduccionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTotalBachtProcesados">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTotalBachtProcesadosRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTotalBachtProcesadosResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="verificarFormulaCargadaEnPLC">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="verificarFormulaCargadaEnPLCRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="verificarFormulaCargadaEnPLCResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="formulaRegistradaEnPLC">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="formulaRegistradaEnPLCRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="formulaRegistradaEnPLCResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isBasculaModoManual">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isBasculaModoManualRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isBasculaModoManualResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isBasculaPrepesado">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isBasculaPrepesadoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isBasculaPrepesadoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDescripcionBascula">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDescripcionBasculaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDescripcionBasculaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isBasculaHabilitada">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isBasculaHabilitadaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isBasculaHabilitadaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBasculaNombre">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBasculaNombreRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBasculaNombreResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deshabilitarBascula">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deshabilitarBasculaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deshabilitarBasculaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="habilitarBascula">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="habilitarBasculaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="habilitarBasculaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setDescripcionBascula">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setDescripcionBasculaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setDescripcionBasculaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTurnoFormula">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTurnoFormulaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTurnoFormulaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isFormulaCancelada">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isFormulaCanceladaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isFormulaCanceladaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBatchsFormula">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBatchsFormulaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBatchsFormulaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNombreIngrediente">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getNombreIngredienteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getNombreIngredienteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBasculaIngrediente">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBasculaIngredienteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBasculaIngredienteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getToleranciaMinima">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getToleranciaMinimaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getToleranciaMinimaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getToleranciaMaxima">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getToleranciaMaximaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getToleranciaMaximaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNombreFormula">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getNombreFormulaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getNombreFormulaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isFormulaDespachada">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isFormulaDespachadaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isFormulaDespachadaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMpIngrediente">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMpIngredienteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMpIngredienteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setModoManualBascula">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setModoManualBasculaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setModoManualBasculaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setFormulaDespachada">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setFormulaDespachadaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setFormulaDespachadaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isFormulaPrepesada">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isFormulaPrepesadaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isFormulaPrepesadaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="saveBatchsRegistroProduccion">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="saveBatchsRegistroProduccionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="saveBatchsRegistroProduccionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="guardarRegistroProduccion">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="guardarRegistroProduccionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="guardarRegistroProduccionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEspecificacionIngrediente">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getEspecificacionIngredienteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getEspecificacionIngredienteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTotalIngredientesFormula">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTotalIngredientesFormulaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTotalIngredientesFormulaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="WSiacnaService">
+
+      <wsdl:port binding="impl:WSiacnaSoapBinding" name="WSiacna">
+
+         <wsdlsoap:address location="http://localhost:8080/IACNA-WS/services/WSiacna"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

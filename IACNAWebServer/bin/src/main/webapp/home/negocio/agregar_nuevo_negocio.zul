@@ -1,0 +1,129 @@
+<?page id="pagAgregarNuevoNegocio" title="" contentType="text/html;charset=UTF-8"?>
+			
+<window zclass="divContentCenterEast">	
+	<div sclass="contentPage pagAgregarNuevoNegocio lineaVerticalGris" zclass="divCenter" >
+		<div zclass="seccionTitulo">
+			<image src="/images/UI/workspaceArea/lapizEditar.png" zclass="imgTitulo" />
+			<label value="Agregar un nuevo negocio" zclass="textoTitulo" />
+		</div>
+		<!-- SECCIÓN NOMBRE NEGOCIO -->		
+		<label value="Nombre del negocio" zclass="txtSubTitulo" />
+		<textbox type="text" value="" zclass="txtNombreNegocio" sclass="txtCampo cajaTexto" />						
+		<!-- SECCION CSD PARA FACTURAR ELECTRÓNICAMENTE -->
+		<div zclass="lineSeparator" />		
+		<label value="Ingresa tu CSD para facturar electrónicamente" zclass="txtSubTitulo" />
+		<div style="width:380px !important;" sclass="txtInformativo">	
+			Este Sistema lo puedes usar para fines fiscales por lo que es necesario
+			configurarlo con un CSD (Certificado de Sello Digital).
+		</div>				
+		<hlayout sclass="hlyUploadCSD">
+			<vlayout>				
+				<textbox sclass="cajaTexto"  value="" type="text"  zclass="fileCer" />
+				<textbox sclass="cajaTexto" type="text" value="" zclass="fileKey" />
+				<textbox sclass="cajaTexto"  type="password" value="" zclass="filePass" />	
+			</vlayout>
+			<vlayout>
+				<div zclass="fUpload">
+					<fileupload label="Examinar" sclass="btnFUp" />
+				</div>
+				<div zclass="fUpload">	
+					<fileupload label="Examinar" sclass="btnFUp" />
+				</div>					
+			</vlayout>
+		</hlayout>			
+		<!-- SECCION DATOS FISCALES -->
+		<div zclass="lineSeparator" />
+		<label value="Escribe tus datos fiscales (Matriz)" zclass="txtSubTitulo" />		
+		<div style="margin-bottom:15px;">
+			<textbox  sclass="txtBordeGris cajaTexto" style="border-radius:5px; width:120px; height:20px;background-repeat:repeat;" type="text"   value="" zclass="txtRFC"/>
+			<textbox  sclass="txtBordeGris cajaTexto" style="border-radius:5px; width:330px;height:20px; margin-left:50px; background-repeat:repeat;" type="text"  value="" zclass="txtRazonSocial"/>
+		</div>				
+		<!-- Datos dirección -->
+		<hlayout style="margin-top:15px;">
+			<vlayout>
+				<textbox sclass="txtCampo cajaTexto" type="text"
+					value="" zclass="txtCalle" />
+				<div>
+					<textbox sclass="cajaTexto" style="width:45%;"
+						type="text" value="" zclass="txtNoExterior" />
+					<textbox sclass="cajaTexto"
+						style="width:44%; margin-left:16px;" type="text" value=""
+						zclass="txtNoInterior" />
+				</div>
+				<textbox sclass="txtCampo cajaTexto" type="text"
+					value="" zclass="txtColonia" />
+				<textbox sclass="txtCampo cajaTexto" type="text"
+					value="" zclass="txtCP" />
+				<textbox sclass="txtCampo cajaTexto" type="text"
+					value="" zclass="txtReferencia" />
+			</vlayout>
+			<vlayout sclass="vlyListaCmbx">
+				<combobox sclass="cmbPais" value="" />
+				<combobox sclass="cmbEstado" value="" />
+				<combobox sclass="cmbCiudad" value="" />
+				<combobox sclass="cmbMunicipio" value="" />
+				<textbox sclass="cajaTexto" type="text" value=""
+					width="140px" zclass="txtLocalidad" />
+			</vlayout>
+		</hlayout>
+
+		<!-- SECCION TIPO DE FACTURACIÓN -->
+		<div zclass="lineSeparator" />
+		<label value="Tipo de facturación" zclass="txtSubTitulo" />
+		<combobox sclass="cmbTipoFact" value="" width="160px" />
+		
+		<!-- SECCIÓN GIRO DE NEGOCIO -->
+		<div zclass="lineSeparator" />
+		<label value="Giro del negocio" zclass="txtSubTitulo" />
+		<textbox rows="5" sclass="txtMultilinea txtBordeGris" />
+		<button label="Seleccionar Giros" sclass="btnM btnGray btnFloatR" />
+		
+		<!-- SECCIÓN RÉGIMEN // Oculto -->
+		<!-- <div visible="false">
+			<div zclass="lineSeparator" />
+			<label value="Régimen" zclass="txtSubTitulo" />
+			<textbox rows="5" sclass="txtMultilinea txtBordeGris" />
+			<button label="Seleccionar Régimen" sclass="btnM btnGray btnFloatR" />
+		</div> --> 			
+		
+		<!-- SECCIÓN SUCURSAL -->
+		<div zclass="lineSeparator" />
+		<label value="Sucursal" zclass="txtSubTitulo" />
+		<div>
+			<textbox type="text" value="" zclass="txtNombreSucursal" sclass="txtCampo cajaTexto" />
+			<combobox style="margin-left: 50px;" sclass="cmbSucursal" value="" visible="false" width="140px" />
+		</div>		
+		<checkbox label="Copiar información del negocio a la sucursar" style="display:block; margin-top:15px; margin-bottom:5px;" zclass="chk" />
+		
+		<!-- Datos dirección -->
+		<hlayout style="margin-top:15px;">
+			<vlayout>
+				<textbox sclass="txtCampo cajaTexto" type="text"
+					value="" zclass="txtCalle" />
+				<div>
+					<textbox sclass="cajaTexto" style="width:45%;"
+						type="text" value="" zclass="txtNoExterior" />
+					<textbox sclass="cajaTexto"
+						style="width:44%; margin-left:16px;" type="text" value=""
+						zclass="txtNoInterior" />
+				</div>
+				<textbox sclass="txtCampo cajaTexto" type="text"
+					value="" zclass="txtColonia" />
+				<textbox sclass="txtCampo cajaTexto" type="text"
+					value="" zclass="txtCP" />
+				<textbox sclass="txtCampo cajaTexto" type="text"
+					value="" zclass="txtReferencia" />
+			</vlayout>
+			<vlayout sclass="vlyListaCmbx">
+				<combobox sclass="cmbPais" value="" />
+				<combobox sclass="cmbEstado" value="" />
+				<combobox sclass="cmbCiudad" value="" />
+				<combobox sclass="cmbMunicipio" value="" />
+				<textbox sclass="cajaTexto" type="text" value=""
+					width="140px" zclass="txtLocalidad" />
+			</vlayout>
+		</hlayout>
+		<div zclass="lineSeparator" style="margin-bottom:10px;" />
+		<button id="btnGuardarInfo" label="Guardar" sclass="btnM btnGray btnFloatR" />				
+	</div>			
+</window>

@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/main/resources=UTF-8
+encoding//src/main/resources/configuration/hibernate=UTF-8
+encoding//src/main/resources/configuration/log4j=UTF-8
+encoding//src/main/resources/configuration/messages=UTF-8
+encoding//src/main/resources/configuration/spring=UTF-8
+encoding/<project>=UTF-8

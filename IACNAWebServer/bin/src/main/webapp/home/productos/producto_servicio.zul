@@ -1,0 +1,77 @@
+<?page title="Productos / Servicios" contentType="text/html;charset=UTF-8"?>
+
+<window sclass="contentPageClientes" zclass="divContentCenterEast">		
+		<div sclass="contentPage lineaVerticalGris" 
+			zclass="divCenter">
+			<div zclass="seccionTitulo">
+				<image src="/images/UI/navigationArea/reportes-icon.png"
+					zclass="imgTitulo" />
+				<label value="Productos / Servicios" zclass="textoTitulo" />
+			</div>	
+		
+			<div zclass="seccionBuscar">
+				<hlayout style="position:absolute; ">
+					<textbox sclass="cajaTexto" zclass="txtBuscar" />
+					<button image="/images/UI/icono-buscar.png" sclass="btnImagen" tooltiptext="Buscar..." />											
+				</hlayout>
+				<hlayout style="position:absolute; right:20px;">
+					<label value="Descargar" sclass="txtInformativo" />
+					<button label="EXCEL" sclass="btnExcel" style="" />
+				</hlayout>
+			</div>
+			<div style="position:relative; margin-top:80px; ">
+				<div sclass="bordesGv" zclass="contentGvClientes">
+					<grid emptyMessage="No existen elementos que mostrar." sizedByContent="true" vflex="1" hflex="1">
+						<columns sclass="contentColumnsGv" sizable="true">
+							<column tooltiptext="Núm. Identificación" >Núm identificación</column>
+							<column tooltiptext="Descripción">Descripción</column>
+							<column tooltiptext="Código de Barras">Código de Barras</column>
+							<column tooltiptext="Precio de Compra">Precio de Compra</column>
+							<column tooltiptext="Precio de Venta">Precio de Venta</column>
+							<column tooltiptext="Unidad">Unidad</column>							
+						</columns>						
+					</grid>				
+				</div>
+				<div sclass="barraPieGv">
+					<label value="0 Clientes" />
+				</div>
+			</div>
+			
+			<div zclass="lineSeparator" />						
+		
+			<!-- SECCIÓN: AGREGAR NUEVO PRODUCTO / SERVICIO -->			
+			<div style="margin-top:50px;">
+				<div sclass="subtituloConImagen">
+					<image src="/images/UI/datosDelReceptor.png" sclass="imgSubtitulo" />
+					<label sclass="txtSubTitulo txtImg" value="Agregar Nuevo Producto Servicio"  />
+				</div>					
+				<vlayout style="margin-top:30px;">
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtDescripcion"/>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtPrecioCompra"/>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtPrecioVenta"/>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtUnidad"/>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtNumIdentificacion"/>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtCodigoBarras"/>
+					
+					<button id="btnAgregarCorreo" label="+Agregar Parte" sclass="btnM btnAgregarDatos"
+						image="/images/UI/navigationArea/reportes-icon.png" />
+				</vlayout>				
+				<hlayout sclass="hlyBtnsGuardarCancelar">
+					<button label="Cancelar" sclass="btn btnCancelar" />
+					<button label="Guardar"  sclass="btn btnGuardar" />
+				</hlayout>				
+			</div>	<!-- Fin seccion agragar -->											
+		</div>
+		<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->		
+		<div zclass="divEast">
+			<div zclass="pagecClientes">
+				<label value="Opciones" zclass="txtGraySmall" />
+				<div sclass="lineGray" style="margin-top:5px;"
+						zclass="lineSeparator" />		
+				<button label="Agregar un Nuevo Cliente" sclass="btnGray" />
+				<button label="Importar Desde Archivo" sclass="btnGray" />
+				<button label="Exportar a un Archivo" sclass="btnGray" />
+			</div>											
+		</div>
+		<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+</window>

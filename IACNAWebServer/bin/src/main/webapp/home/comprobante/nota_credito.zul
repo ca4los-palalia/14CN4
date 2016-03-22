@@ -1,0 +1,724 @@
+<?page title="Nota de credito" contentType="text/html;charset=UTF-8"?>
+
+<window sclass="contentPageWFactura" zclass="divContentCenterEast">
+	<div sclass="contentPage pagFactura lineaVerticalGris" 
+		zclass="divCenter">
+		<!-- SECCIÓN DATOS DEL RECEPTOR -->
+		<div zclass="seccionTitulo">
+			<image src="/images/UI/navigationArea/Facturas.png" zclass="imgTitulo" />
+			<label value="Nota de crédito" zclass="textoTitulo" />
+		</div>	
+		<div sclass="subtituloConImagen">
+			<image src="/images/UI/datosDelReceptor.png" sclass="imgSubtitulo" />
+			<label sclass="txtSubTitulo txtImg" value="Datos del Receptor"  />
+		</div>			
+		<!-- RFC - Nombre/RazonSocial -->
+		<div>
+			<div style="margin-bottom:15px; margin-top:15px;">
+				<textbox sclass="txtBordeGris cajaTexto" style="border-radius:5px; width:120px; height:20px;background-repeat:repeat;" type="text"   value="" zclass="txtRFC"/>
+				<textbox sclass="txtBordeGris cajaTexto" style="border-radius:5px; width:330px;height:20px; margin-left:50px; background-repeat:repeat;" type="text"  value="" zclass="txtNombreRazonSocial"/>
+			</div>
+			<radiogroup id="rdgReceptor" />
+			<hlayout sclass="hlyRBReceptor txtInformativo">
+				<radio label="Dirección Fiscal"    radiogroup="rdgReceptor"/>
+				<radio label="Público en general"  radiogroup="rdgReceptor" />
+				<radio label="Extranjeros sin RFC" radiogroup="rdgReceptor" />
+			</hlayout>
+		</div>				
+		<!-- Datos dirección -->
+		<div style="margin-top:20px;">			
+			<hlayout>
+				<vlayout>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtCalle"/>
+					<div>
+						<textbox sclass="cajaTexto" style="width:45%;" type="text" value="" zclass="txtNoExterior"  />
+						<textbox sclass="cajaTexto" style="width:44%; margin-left:16px;" type="text" value="" zclass="txtNoInterior" />
+					</div>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtColonia"/>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtCP"/>
+					<textbox sclass="txtCampo cajaTexto"  type="text" value="" zclass="txtReferencia" />																			
+				</vlayout>
+				<vlayout sclass="vlyListaCmbx">
+					<combobox sclass="cmbPais" value="" />
+					<combobox sclass="cmbEstado" value=""/>
+					<combobox sclass="cmbCiudad" value=""/>
+					<combobox sclass="cmbMunicipio" value=""/>
+					<textbox  sclass="cajaTexto" type="text" value="" width="140px" zclass="txtLocalidad" />											
+				</vlayout>
+			</hlayout>				
+			<textbox sclass="txtCampo cajaTexto" zclass="txtCorreoElectronico" />
+			<checkbox label="Enviar por correo electrónico" sclass="textoAzul" style="display:block; margin-top:5px;" />
+		</div>
+		
+		<!-- SECCIÓN AGREGAR CONCEPTO -->		
+		<div sclass="subtituloConImagen" style="margin-top:60px; margin-bottom:20px;">
+			<image src="/images/UI/criterios.png" sclass="imgSubtitulo" />
+			<label sclass="txtSubTitulo txtImg" value="Agregar Concepto"/>
+		</div>
+		<div zclass="camposConcepto">
+			<div id="contentCCantidad">
+				<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="" zclass="txtCantidad"/>	
+				<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="" zclass="txtUnidad"/>
+				<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="" zclass="txtDescripcion"/>
+				<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="" zclass="txtValorUnitario"/>
+			</div>
+			<!-- Importe -->			
+			<div>
+				<label sclass="txtInformativo"  value="Importe" />
+				<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="" zclass="algunValor"/>
+			</div>
+			<!-- No. Identificación -->
+			<div>
+				<label sclass="txtInformativo" value="No. de Identificación" />
+				<textbox sclass="cajaTexto txtBordeGris"  type="text"   value="" zclass="txtNoIdentificacion"/>
+			</div>							
+			<!-- Descuento por concepto -->
+			<div zclass="conceptoDescuento" > 
+				<label sclass="txtInformativo" value="Descuento" />
+				<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="" zclass="txtDescuento"/>	
+			</div>							
+			<!-- Impuestos Trasladados ** Concepto -->
+			<div zclass="conceptoImpuestosTrasladados">
+				<div sclass="txtInformativo" visible="true">
+					<label sclass="nombreSeccion" value="Impuestos trasladados" />	
+				</div>
+				<div zclass="contentParCampos">
+					<label sclass="txtInformativo"  value="IVA Excento / IVA Cero" />
+					<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="0.00%" zclass="txtIvaExcentoCero"/>
+				</div>	
+				<div zclass="contentParCampos">
+					<label sclass="txtInformativo"  value="IVA Excento / IVA Cero" />
+					<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="0.00%" zclass="txtIvaExcentoCero"/>
+				</div>
+				<div zclass="contentParCampos">
+					<label sclass="txtInformativo"  value="IVA Excento / IVA Cero" />
+					<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="0.00%" zclass="txtIvaExcentoCero"/>
+				</div>			
+			</div>
+			<!-- Impuestos Retenidos ** Concepto -->
+			<div zclass="conceptoImpuestosRetenidos">
+				<div sclass="txtInformativo" visible="true">
+					<label sclass="nombreSeccion" value="Impuestos retenidos" />	
+				</div>
+				<div zclass="contentParCampos">
+					<label value="Ret IVA" zclass="txtInformativo"/>
+					<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="10.67%" zclass="txtImporte"/>					
+				</div>		
+				<div zclass="contentParCampos">
+					<label value="Ret IVA" zclass="txtInformativo"/>
+					<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="10.67%" zclass="txtImporte"/>					
+				</div>							
+				<div zclass="contentParCampos">
+					<label value="Ret IVA" zclass="txtInformativo"/>
+					<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="10.67%" zclass="txtImporte"/>					
+				</div>																																		
+			</div>
+			<!-- Información Aduanera -->
+			<div zclass="conceptoInformacionAduanera"> 
+				<div sclass="txtInformativo">
+					<label sclass="nombreSeccion" value="Información aduanera" />
+				</div>
+				<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="Número" zclass="txtNumeroAduanera"/>
+				<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="Fecha" zclass="txtFechaAduanera"/>
+				<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="Aduana" zclass="txtAduana"/>
+			</div>
+			<!-- Información Adicional -->							
+			<div zclass="conceptoInformacionAdicional" >
+				<div sclass="txtInformativo">
+					<label sclass="nombreSeccion" value="Información adicional"/>					
+				</div>
+				<textbox multiline="true" sclass="txtBordeGris cajaTexto"  type="text" value="Información adicional" zclass="txtInfoAdicional"/>
+			</div>
+			<!-- Partes -->							
+			<div zclass="conceptoVerPartes" >
+				<div sclass="txtInformativo">
+					<label sclass="nombreSeccion" value="Partes del concepto:" />	
+				</div>
+				<checkbox label="Ver partes" sclass="textoAzul" style="display:block; margin-top:5px;" />		
+			</div>													
+		</div>
+		<button label="+Agregar" sclass="btnM btnGray btnFloatR"/>
+		<div sclass="bordesGv" zclass="contentGvConceptos">
+			<grid sclass="gvConceptos">
+				<columns>
+					<column>Cant</column>
+					<column>Descripción</column>
+					<column>Precio Unitario</column>
+					<column>Importe</column>
+				</columns>
+			</grid>			
+		</div>
+		<div zclass="pieGvConceptos">
+			<label id="lblCantidadConceptos" value="0:" zclass="cantConceptos" />
+		</div>
+		
+		<!-- SECCIÓN DETALLES DE LA FACTURA -->
+		<div sclass="subtituloConImagen" style="margin-top:60px;">
+			<image src="/images/UI/criterios.png" sclass="imgSubtitulo" />
+			<label sclass="txtSubTitulo txtImg" value="Detalles de la Factura"  />
+		</div>
+		<div style="margin-top:20px;">
+			<label sclass="txtInformativo" value="IVA:" />
+			<textbox sclass="txtBordeGris cajaTexto"  type="text" value="" zclass="txtIva"/>
+		</div>
+		<!-- Descuentos --> 
+		<div style="margin-top:25px;" zclass="contentDFDescuento" visible="true">
+			<div>
+				<label value="Descuento" zclass="txtSubTitulo" />
+			</div>
+			<hlayout>
+				<div zclass="celda1">
+					<label value="Descuento " sclass="txtInformativo" />
+					<textbox type="text" sclass="txtBordeGris cajaTexto" zclass="txtDescuento" />
+				</div>
+				<div zclass="celda2">
+					<label value="Motivo " sclass="txtInformativo" />
+					<textbox type="text" sclass="txtBordeGris cajaTexto" zclass="txtMotivoDescuento" />
+				</div>
+			</hlayout>
+		</div>
+		<!-- Impuestos Trasladados ** Factura -->				
+		<div zclass="conceptoImpuestosTrasladados">
+			<div sclass="txtInformativo">
+				<label sclass="nombreSeccion" value="Impuestos trasladados" />	
+			</div>
+			<div zclass="contentParCampos">
+				<label sclass="txtInformativo"  value="IVA Excento / IVA Cero" />
+				<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="0.00%" zclass="txtIvaExcentoCero"/>
+			</div>
+		</div>
+		<!-- Impuestos Retenidos ** Factura -->
+		<div zclass="conceptoImpuestosRetenidos">
+			<div sclass="txtInformativo">
+				<label sclass="nombreSeccion" value="Impuestos retenidos" />	
+			</div>
+			
+			<div zclass="contentParCampos">
+				<label value="Ret IVA" zclass="txtInformativo"/>
+				<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="10.67%" zclass="txtImporte"/>					
+			</div>		
+			<div zclass="contentParCampos">
+				<label value="Ret IVA" zclass="txtInformativo"/>
+				<textbox sclass="txtBordeGris cajaTexto"  type="text"   value="10.67%" zclass="txtImporte"/>					
+			</div>																												
+		</div>		
+		<!-- Orden de compra -->
+		<div style="margin-top:25px;" zclass="contentDFOrdenCompra" visible="true">
+			<div>
+				<label value="Orden de Compra" zclass="txtSubTitulo" />
+			</div>
+			<hlayout>
+				<label value="Orden de compra " sclass="txtInformativo" />
+				<textbox sclass="txtBordeGris cajaTexto" />
+				<button label="+ Agregar" sclass="btnM btnGray" />
+			</hlayout> 
+			<div zclass="contenedorOrdenesCompra">
+				<div zclass="tituloOrdenesCompra">
+					<label value="Orden de Compra" zclass="lblTitulo" />
+					</div>
+				<div zclass="listaOrdenesCompra">
+					<label sclass="textoAzul" zclass="elementoOrdenCompra">Elemento 1</label>				
+					<label sclass="textoAzul" zclass="elementoOrdenCompra">Elemento 1</label>	
+				</div>
+				<div zclass="pieOrdenesCompra">
+					<label value="0 : 30" zclass="lblPie" />
+				</div>
+			</div>					
+		</div>						
+		<!-- Lugar de expedición -->
+		<div>
+			<label sclass="txtSubTitulo" value="Lugar de Expedición" />
+			<label sclass="txtInformativo" value="Estado, México" />
+		</div>		
+		<!-- Campos adicionales	 -->
+		<div zclass="contentDFCamposAdicionales" visible="true">
+			<div>
+				<label value="Campos Adicionales" zclass="txtSubTitulo" />
+				<hlayout>
+					<label sclass="txtSubTitulo columna1"  value="Título"/>
+					<label sclass="txtSubTitulo columna2" value="Valor"/>
+				</hlayout>
+			</div>
+			<vlayout zclass="contentListaCamposAdicionales">	
+				<hlayout>
+					<div>
+						<label sclass="txtInformativo" value="lblTitulo" />
+						<textbox sclass="txtCampo txtBordeGris cajaTexto" type="text" />
+				 	</div>
+				 	<div>
+						<label sclass="txtInformativo" value="lblValor" />
+						<textbox sclass="txtValor txtBordeGris cajaTexto" type="text" />
+				 	</div>				 
+				</hlayout>															
+			</vlayout>
+		</div>
+		<!-- Etiquetas -->
+		<div zclass="contentDFEtiquetas" visible="true">
+			<div>
+				<label value="Etiquetas" zclass="txtSubTitulo" />
+			</div>
+			<div zclass="contentListaEtiquetas" >	
+				<div zclass="parCampos">
+					<textbox sclass="txtEtiqueta txtBordeGris cajaTexto" type="text" />
+					<label sclass="txtInformativo" value="lblEtiquetawee" />
+				</div>												
+				<div zclass="parCampos">
+					<textbox sclass="txtEtiqueta txtBordeGris cajaTexto" type="text" />
+					<label sclass="txtInformativo" value="lblEtiquetaweeeeee" />
+				</div>
+				<div zclass="parCampos">
+					<textbox sclass="txtEtiqueta txtBordeGris cajaTexto" type="text" />
+					<label sclass="txtInformativo" value="lblEtiquetaw" />
+				</div>												
+			</div>
+		</div>
+		<!-- Leyendas -->
+		<div zclass="contentDFLeyendas" visible="true">
+			<div>
+				<label value="Leyendas" zclass="txtSubTitulo" />
+			</div>
+			<div zclass="contentListaLeyendas">
+				<div zclass="parCampos">
+					<label sclass="txtInformativo" value="lblLeyenda" />
+					<textbox sclass="txtBordeGris cajaTexto" type="text" multiline="true" />					
+				</div>				
+				<div zclass="parCampos">
+					<label sclass="txtInformativo" value="lblLeyenda" />
+					<textbox sclass="txtBordeGris cajaTexto" type="text" multiline="true" />					
+				</div>					
+			</div>			
+		</div>		
+		<!-- Firmas -->
+		<div zclass="contentDFFirmas" visible="true">
+			<div>
+				<label value="Firmas" zclass="txtSubTitulo" />
+			</div>			
+			<div>
+				<div zclass="contentFirma">
+					<label sclass="txtInformativo nombreFirma" value="El nombre de mi firma" />
+					<div zclass="tituloFirma">
+						<label sclass="txtInformativo" value="Titulo" />
+						<textbox sclass="txtBordeGris cajaTexto" type="text"/>	
+					</div>		
+					<div zclass="lineaFirma">						
+					</div>
+					<div zclass="nombreFirma">
+						<label sclass="txtInformativo" value="Nombre" />
+						<textbox sclass="txtBordeGris cajaTexto" type="text"/>	
+					</div>		
+					<div zclass="puestoFirma">
+						<label sclass="txtInformativo" value="Puesto" />
+						<textbox sclass="txtBordeGris cajaTexto" type="text"/>	
+					</div>		
+					<div zclass="areaFirma">
+						<label sclass="txtInformativo" value="Área" />
+						<textbox sclass="txtBordeGris cajaTexto" type="text"/>	
+					</div>		
+				</div>				
+				<div zclass="contentFirma">
+					<label sclass="txtInformativo nombreFirma" value="El nombre de mi firma" />
+					<div zclass="tituloFirma">
+						<label sclass="txtInformativo" value="Titulo" />
+						<textbox sclass="txtBordeGris cajaTexto" type="text"/>	
+					</div>		
+					<div zclass="lineaFirma">						
+					</div>
+					<div zclass="nombreFirma">
+						<label sclass="txtInformativo" value="Nombre" />
+						<textbox sclass="txtBordeGris cajaTexto" type="text"/>	
+					</div>		
+					<div zclass="puestoFirma">
+						<label sclass="txtInformativo" value="Puesto" />
+						<textbox sclass="txtBordeGris cajaTexto" type="text"/>	
+					</div>		
+					<div zclass="areaFirma">
+						<label sclass="txtInformativo" value="Área" />
+						<textbox sclass="txtBordeGris cajaTexto" type="text"/>	
+					</div>		
+				</div>		
+			</div>			
+		</div>			
+		<!-- Descuentos  personalizados -->
+		<div zclass="contentDFCamposAdicionales" visible="true">
+			<div>
+				<label value="Descuentos Personalizados" zclass="txtSubTitulo" />
+				<hlayout>
+					<label sclass="txtSubTitulo columna1"  value="Motivo"/>
+					<label sclass="txtSubTitulo columna2" value="Monto"/>
+				</hlayout>
+			</div>
+			<vlayout zclass="contentListaCamposAdicionales">	
+				<hlayout>
+					<div>
+						<label sclass="txtInformativo" value="lblTitulo" />
+						<textbox sclass="txtCampo txtBordeGris cajaTexto" type="text" />
+				 	</div>
+				 	<div>
+						<label sclass="txtInformativo" value="lblValor" />
+						<textbox sclass="txtValor txtBordeGris cajaTexto" type="text" />
+				 	</div>				 
+				</hlayout>															
+			</vlayout>
+		</div>
+			
+		<!-- Sección importes -->
+		<div>
+			<hlayout sclass="hlyImportes">
+				<vlayout>
+					<label value="Importe" sclass="txtInformativo"/>
+					<div>
+						("impuestos agregados")
+					</div>
+					<label sclass="txtInformativo" value="Descuento"/>
+					<label sclass="txtInformativo" value="Subtotal"/>
+					<label sclass="txtInformativo" value="TOTAL" zclass="txtTotalFactura"/>
+				</vlayout>
+				<vlayout style="text-align:right;">
+					<label sclass="txtInformativo" value="$0.00" zclass="txtImporteFactura" />
+					<div>
+						("impuestos agregados")
+					</div>
+					<label sclass="txtInformativo" value="$0.00" zclass="txtDescuentoFactura" />
+					<label sclass="txtInformativo" value="$0.00" zclass="txtSubtotalFactura" />
+					<label sclass="txtInformativo" value="$0.00" zclass="txtTotalFactura" />
+				</vlayout>
+			</hlayout>
+			<div style="clear:both;">				
+				<button label="Vista previa" sclass="btnM btnGray btnFloatR"/>
+				<button label="Limpiar factura" sclass="btnM btnGray btnFloatR"/>
+			</div>
+			<button label="Emitir Factura" sclass="btnM btnFloatR" zclass="btnVerde" style="clear:both;"/>
+		</div>										
+	</div> <!-- Fin contenedor -->	
+	
+	
+	<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+	<!-- Incluyendo la página de la región de configuración -->		
+		
+	<div zclass="divEast" >
+		<div zclass="pagecFactura">
+			<!-- Giro -->
+			<label value="Giro" zclass="txtGraySmall"/>												
+			<combobox sclass="cmbGiro" />											
+			<div sclass="lineGray" style="margin-top:5px;" zclass="lineSeparator"/>
+			<!-- Personalización -->				
+			<label value="Personzalizacion" zclass="txtGraySmall"/>												
+			<combobox sclass="cmbGiro" />											
+			<div sclass="lineGray" style="margin-top:5px;" zclass="lineSeparator"/>			
+			<!-- ## REGIMEN FISCAL ## -->
+			<groupbox open="false">
+				<caption label="Régimen Fiscal" sclass="txtTituloC">
+					<div zclass="imgFlecha" />	
+				</caption>
+				<div zclass="parTxtBtn">
+					<textbox sclass="cajaTexto" zclass="txtRegimenFiscal"/>
+					<button label="Agregar" sclass="btnM btnGray btnFloatR"/>					
+				</div>
+				<combobox sclass="cmbConsolidacionFiscal" value=""/>				
+			</groupbox>
+									
+			<!-- ## SECCIÓN = FORMA DE PAGO ## -->
+			<radiogroup id="rdgFormaPago" />
+			<groupbox open="false" sclass="seccionFormaPago" style="margin-top:20px;">
+				<caption label="Forma de Pago" sclass="txtTituloC">
+					<div zclass="imgFlecha" />	
+				</caption>
+				<vlayout>	
+					<radio label="Pago en una sola exhibición" sclass="textoAzul" radiogroup="rdgFormaPago" />
+					<radio label="Parcialidad" sclass="textoAzul" radiogroup="rdgFormaPago" />
+					<hlayout style="margin-left:5px;">
+						<textbox sclass="cajaTexto" />
+						de
+						<textbox sclass="cajaTexto" />
+					</hlayout>
+					<textbox sclass="cajaTexto" zclass="txtMontoTotal" />
+					<hlayout>						
+						<datebox cols="10" format="yyyy/MM/dd "  mold="rounded" />
+           				<timebox cols="10" format="a hh:mm:ss" mold="rounded" />
+					</hlayout>
+					<label value="Fecha original:" sclass="txtGraySmall" />
+				</vlayout>
+			</groupbox>			
+			<!-- ## SECCIÓN = MÉTODOS DE PAGO ## -->
+			<groupbox open="false" style="margin-top:20px;">
+				<caption label="Métodos de Pago" sclass="txtTituloC">
+					<div zclass="imgFlecha" />				
+				</caption>	
+				<combobox sclass="cmbMetodoPago" value=""/>
+			</groupbox>
+			
+			<!-- ## SECCIÓN = CONDICIONES DE PAGO ## -->
+			<groupbox open="false" style="margin-top:20px;" sclass="seccionCondicionesPago">
+				<caption label="Condiciones de Pago" sclass="txtTituloC">
+					<div zclass="imgFlecha" />
+				</caption>
+				<checkbox label="Comprobante a crédito" sclass="textoAzul" />
+				<vlayout>
+					<label value="Fecha límite de pago" sclass="txtInformativo" />
+					<datebox />
+					<checkbox label="Mostrar pagaré" sclass="textoAzul" />
+					<hlayout>
+						<label value="Intereses moratorios" />
+						<textbox sclass="cajaTexto"/>
+						<label value="%" sclass="txtInformativo" />
+					</hlayout>				
+				</vlayout>
+			</groupbox>
+			
+			<!-- ## SECCIÓN = CONCEPTOS ## -->
+			<groupbox open="false" style="margin-top:20px;">
+				<caption label="Conceptos" sclass="txtTituloC">
+					<div zclass="imgFlecha" />
+				</caption>
+				<vlayout style="margin-left:5px;">
+					<checkbox label="Número de identificación" sclass="textoAzul"/>
+					<checkbox label="Descuento por concepto" sclass="textoAzul" />
+					<checkbox label="Información adicional" sclass="textoAzul" />
+					<checkbox label="Información aduanera" sclass="textoAzul" />
+					<checkbox label="Parte" sclass="textoAzul" />
+				</vlayout>
+			</groupbox>
+			
+			<!-- ## SECCIÓN = IMPUESTOS TRASLADADOS ## -->
+			<radiogroup id="opcionesIVA" />
+			<groupbox open="false" style="margin-top:20px;" sclass="seccionImpuestosT">
+				<caption label="Impuestos Trasladados" sclass="txtTituloC">
+					<div zclass="imgFlecha" />
+				</caption>
+				<div>					
+					<textbox sclass="cajaTexto" zclass="txtNombre" />
+					<hlayout>
+						<textbox sclass="cajaTexto" zclass="txtAbreviatura" />
+						<textbox sclass="cajaTexto" zclass="txtPorcentaje"  />
+					</hlayout>
+					<button label="Agregar" sclass="btnM btnGray btnFloatR"/>	
+				</div>
+				<div zclass="contentColumnas">
+					<vlayout>
+						<hlayout>
+							<div sclass="tituloColumna" zclass="colNombre">Nombre</div>
+							<div sclass="tituloColumna" zclass="colTipo">Tipo</div>
+							<div sclass="tituloColumna" zclass="colPorcentaje">Porcentaje</div>
+						</hlayout>	
+						<hlayout>
+							<div zclass="colNombre">
+								<radio label="IVA" radiogroup="opcionesIVA" sclass="textoAzul"/>
+							</div>
+							<div zclass="colTipo">
+								<combobox>
+									<comboitem>Fact</comboitem>
+									<comboitem>Cpto</comboitem>
+								</combobox>
+							</div>
+							<div zclass="colPorcentaje">
+								<combobox>
+									<comboitem>16.00%</comboitem>
+									<comboitem>11.00%</comboitem>
+									<comboitem>4.00%</comboitem>
+								</combobox>
+							</div>
+						</hlayout>
+						<hlayout>
+							<div zclass="colNombre">
+								<radio label="IVA Exento" radiogroup="opcionesIVA" sclass="textoAzul"/>
+							</div>
+							<div zclass="colTipo">
+								<combobox>
+									<comboitem>Fact</comboitem>
+									<comboitem>Cpto</comboitem>
+								</combobox>
+							</div>
+							<div zclass="colPorcentaje">
+								<textbox sclass="cajaTexto" />	
+							</div>
+						</hlayout>
+						<hlayout>
+							<div zclass="colNombre">
+								<radio label="IVA Cero" radiogroup="opcionesIVA" sclass="textoAzul"/>
+							</div>
+							<div zclass="colTipo">
+								<combobox>
+									<comboitem>Fact</comboitem>
+									<comboitem>Cpto</comboitem>
+								</combobox>
+							</div>
+							<div zclass="colPorcentaje">
+								<textbox sclass="cajaTexto" />
+							</div>
+						</hlayout>
+						<hlayout>
+							<div zclass="colNombre">
+								<checkbox label="IEPS" sclass="textoAzul" />
+							</div>
+							<div zclass="colTipo">
+								<combobox>
+									<comboitem>Fact</comboitem>
+									<comboitem>Cpto</comboitem>
+								</combobox>
+							</div>
+							<div zclass="colPorcentaje">
+								<textbox sclass="cajaTexto" />	
+							</div>
+						</hlayout>																				
+					</vlayout>					
+				</div>								
+			</groupbox>
+			
+			<!-- ## SECCIÓN = IMPUESTOS RETENIDOS ## -->
+			<groupbox open="false" style="margin-top:20px;" sclass="seccionImpuestosR">
+				<caption label="Impuestos Retenidos" sclass="txtTituloC">
+					<div zclass="imgFlecha" />
+				</caption>
+				<textbox sclass="cajaTexto" zclass="txtNombre" />
+				<hlayout>	
+					<textbox sclass="cajaTexto" zclass="txtAbreviatura" />
+					<textbox sclass="cajaTexto" zclass="txtPorcentaje"  />
+				</hlayout>
+				<button label="Agregar" sclass="btnM btnGray btnFloatR"/>
+				
+				<div zclass="contentColumnas">
+					<vlayout>
+						<hlayout>
+							<div sclass="tituloColumna" zclass="colNombre">Nombre</div>
+							<div sclass="tituloColumna" zclass="colTipo">Tipo</div>
+							<div sclass="tituloColumna" zclass="colPorcentaje">Porcentaje</div>
+						</hlayout>
+						<hlayout>
+							<div zclass="colNombre">
+								<checkbox label="IEPS" sclass="textoAzul" />
+							</div>
+							<div zclass="colTipo">
+								<combobox>
+									<comboitem>Fact</comboitem>
+									<comboitem>Cpto</comboitem>
+								</combobox>
+							</div>
+							<div zclass="colPorcentaje">
+								<textbox sclass="cajaTexto" />	
+							</div>
+						</hlayout>	
+						<hlayout>
+							<div zclass="colNombre">
+								<checkbox label="IEPS" sclass="textoAzul" />
+							</div>
+							<div zclass="colTipo">
+								<combobox>
+									<comboitem>Fact</comboitem>
+									<comboitem>Cpto</comboitem>
+								</combobox>
+							</div>
+							<div zclass="colPorcentaje">
+								<textbox sclass="cajaTexto" />	
+							</div>
+						</hlayout>	
+						<hlayout>
+							<div zclass="colNombre">
+								<checkbox label="IEPS" sclass="textoAzul" />
+							</div>
+							<div zclass="colTipo">
+								<combobox>
+									<comboitem>Fact</comboitem>
+									<comboitem>Cpto</comboitem>
+								</combobox>
+							</div>
+							<div zclass="colPorcentaje">
+								<textbox sclass="cajaTexto" />	
+							</div>
+						</hlayout>	
+					</vlayout>
+				</div>	
+			</groupbox>
+			
+			<!-- ## SECCIÓN = COMPROBANTE	 ## -->
+			<groupbox open="false" style="margin-top:20px;" sclass="seccionComprobante">
+				<caption label="Comprobante" sclass="txtTituloC">
+					<div zclass="imgFlecha" />
+				</caption>
+				<vlayout>
+					<combobox sclass="cmbTipoMoneda">			
+					</combobox>
+					<hlayout>
+						<combobox sclass="cmbSimboloTM"> </combobox>
+						<textbox  sclass="cajaTexto" zclass="txtTipoCambio"/>
+					</hlayout>
+					<checkbox label="Descuento en Factura" sclass="txtInformativo" />
+					<checkbox label="Orden de compra" sclass="txtInformativo" />
+				</vlayout>
+			</groupbox>
+			
+			<!-- ## SECCIÓN = DESCUENTOS ## -->
+			<groupbox open="false" style="margin-top:20px;">
+				<caption label="Descuentos" sclass="txtTituloC">
+					<div zclass="imgFlecha" />
+				</caption>
+				<div zclass="parTxtBtn">
+					<textbox sclass="cajaTexto" zclass="txtNombreDescuento"/>
+					<button label="Agregar" sclass="btnM btnGray btnFloatR"/>
+				</div>
+				<div sclass="listaElementosConfiguracion">
+					<checkbox label="Descuento 1" sclass="textoAzul"/>
+					<checkbox label="Descuento 2" sclass="textoAzul"/>					
+				</div>
+			</groupbox>
+			
+				<!-- ## SECCIÓN = CAMPOS ADICIONALES ## -->
+			<groupbox open="false" style="margin-top:20px;">
+				<caption label="Campos Adicionales" sclass="txtTituloC">
+					<div zclass="imgFlecha" />
+				</caption>
+				<div zclass="parTxtBtn">
+					<textbox sclass="cajaTexto" zclass="txtTituloCampo"/>
+					<button label="Agregar" sclass="btnM btnGray btnFloatR"/>
+				</div>
+				<div sclass="listaElementosConfiguracion">
+					<checkbox label="Campos Adicionales 1" sclass="textoAzul"/>
+					<checkbox label="Campos Adicionales 2" sclass="textoAzul"/>					
+				</div>
+			</groupbox>
+			
+			<!-- ## SECCIÓN = ETIQUETAS ## -->
+			<groupbox open="false" style="margin-top:20px;">
+				<caption label="Etiquetas" sclass="txtTituloC">
+					<div zclass="imgFlecha" />
+				</caption>
+				<div zclass="parTxtBtn">
+					<textbox sclass="cajaTexto" zclass="txtNombreEtiqueta"/>
+					<button label="Agregar" sclass="btnM btnGray btnFloatR"/>
+				</div>
+				<div sclass="listaElementosConfiguracion">
+					<checkbox label="Etiquetas 1" sclass="textoAzul"/>
+					<checkbox label="Etiquetas 2" sclass="textoAzul"/>						
+				</div>
+			</groupbox>			
+			<!-- ## SECCIÓN = LEYENDAS ## -->
+			<groupbox open="false" style="margin-top:20px;">
+				<caption label="Leyendas" sclass="txtTituloC">
+					<div zclass="imgFlecha" />
+				</caption>
+				<div zclass="parTxtBtn">
+					<textbox sclass="cajaTexto" zclass="txtNombreLeyenda"/>
+					<button label="Agregar" sclass="btnM btnGray btnFloatR"/>
+				</div>
+				<div sclass="listaElementosConfiguracion">
+					<checkbox label="Leyendas 1" sclass="textoAzul"/>						
+					<checkbox label="Leyendas 2" sclass="textoAzul"/>
+				</div>
+			</groupbox>			
+			<!-- ## SECCIÓN  = FIRMAS ## -->
+			<groupbox open="false" style="margin-top:20px;">
+				<caption label="Firmas" sclass="txtTituloC">
+					<div zclass="imgFlecha" />
+				</caption>
+				<div zclass="parTxtBtn">
+					<textbox sclass="cajaTexto" zclass="txtNombreFirma"/>
+					<button label="Agregar" sclass="btnM btnGray btnFloatR"/>
+				</div>
+				<div sclass="listaElementosConfiguracion">	
+					<checkbox label="Firmas 1" sclass="textoAzul"/>					
+					<checkbox label="Firmas 2" sclass="textoAzul"/>
+				</div>
+			</groupbox>				
+		</div> <!-- Fin del contenedor principal -->
+	</div>			
+	<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+</window>

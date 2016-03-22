@@ -1,0 +1,10 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<style src="/styles/stylesUI/stylesConfiguration.css" />	
+	<div self="@{insert(contentCE)}">
+		<div self="@{insert(workspace)}">								
+		</div>
+		<div self="@{insert(configurationArea)}" >								
+		</div>
+	</div>
+</zk>

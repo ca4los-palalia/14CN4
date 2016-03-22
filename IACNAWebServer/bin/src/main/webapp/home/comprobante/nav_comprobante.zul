@@ -1,0 +1,51 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window zclass="withoutZClass">
+		<div zclass="contentMenu">
+			<image src="/images/UI/navigationArea/Facturas.png"
+				zclass="imgHeaderPanel" />
+			<panel title="Comprobante" border="normal" collapsible="true"
+				zclass="headPanel" open="true">
+				<panelchildren zclass="pnlChildren">
+					<div>
+						<button
+							onClick="@global-command('changeModule', key='COMPROBANTE_FACTURA')"
+							label="Factura" zclass="btnSubmenu" sclass="btnM" type="button"
+							image="/images/UI/navigationArea/iconCitas.png" />
+					</div>
+					<div>
+						<button
+							onClick="@global-command('changeModule', key='COMPROBANTE_NOTA_CREDITO')"
+							label="Nota de Credito" zclass="btnSubmenu" sclass="btnM"
+							type="button" image="/images/UI/navigationArea/iconCitas.png" />
+					</div>
+					<div>
+						<button
+							onClick="@global-command('changeModule', key='COMPROBANTE_RECIBO')"
+							label="Recibo" zclass="btnSubmenu" sclass="btnM" type="button"
+							image="/images/UI/navigationArea/iconCitas.png" />
+					</div>
+					<div>
+						<button
+							onClick="@global-command('changeModule', key='COMPROBANTE_RECIBO_DONATARIA')"
+							label="Recibo de Donataria" zclass="btnSubmenu" sclass="btnM"
+							type="button" image="/images/UI/navigationArea/iconCitas.png" />
+					</div>
+					<div>
+						<button
+							onClick="@global-command('changeModule', key='COMPROBANTE_CARTA_PORTE')"
+							label="Carta Porte" zclass="btnSubmenu" sclass="btnM"
+							type="button" image="/images/UI/navigationArea/iconCitas.png" />
+					</div>
+					<div>
+						<button
+							onClick="@global-command('changeModule', key='COMPROBANTE_CONFIGURACION')"
+							label="Configuración" zclass="btnSubmenu"
+							sclass="btnM btnConfiguracion" type="button"
+							image="/images/UI/navigationArea/Facturas.png" />
+					</div>
+				</panelchildren>
+			</panel>
+		</div>
+	</window>
+</zk>

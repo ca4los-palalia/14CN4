@@ -1,0 +1,66 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window zclass="withoutZClass">
+		<!-- Logo y nombre de la empresa -->
+		<div zclass="divFotoEmpresa">
+			<div zclass="divPruebas" sclass="textoAzul">
+				Pruebas
+				<button type="button"
+					image="/images/UI/navigationArea/collapsed.png"
+					sclass="btnLink cursorManita" tooltip="agregarNegocio"
+					zclass="imgCollapsed" />
+			</div>
+			<div zclass="divImgNegocio">
+				<image src="/images/UI/navigationArea/logo.png"
+					zclass="imgNegocio" />
+			</div>
+			<div zclass="divPruebas">
+				<image src="/images/UI/navigationArea/owner.png"
+					style="margin-left:30%;" />
+				<button label="Editar"
+					onClick="@global-command('changeModule', key='KING_NEGOCIO')"
+					sclass="textoAzul btnLink editar cursorManita"
+					zclass="imgCollapsed"
+					tooltiptext="Modifica los datos del negocio." />
+			</div>
+		</div>
+		<popup id="agregarNegocio" zclass="popUpNuevoNegocio">
+			<div sclass="txtInformativo">No hay otros negocios</div>
+			<button
+				onClick="@global-command('changeModule', key='NEGOCIO')"
+				label="Agregar nuevo negocio +" zclass="btnM" />
+		</popup>
+
+		<div zclass="lineaGris" />
+
+		<vlayout>
+			<hlayout>
+				<label value="Cert:" zclass="lblCampo"
+					sclass="txtGrisLighter" />
+				<label value="N/A" zclass="lblValorCampo"
+					sclass="txtRojoLighter" />
+			</hlayout>
+			<hlayout>
+				<label value="Expira:" zclass="lblCampo"
+					sclass="txtGrisLighter" />
+				<label value="N/A" zclass="lblValorCampo"
+					sclass="txtRojoLighter" />
+			</hlayout>
+		</vlayout>
+
+		<div zclass="lineaGris" />
+
+		<div>
+			<label value="Sucursal sin nombre"
+				zclass="lblNombreSucursal" sclass="txtGrisBold" />
+		</div>
+
+		<div zclass="lineaGris" />
+
+		<div>
+			<label value="No hay Series" zclass="lblSeries"
+				sclass="txtGrisBold" />
+		</div>
+		<div zclass="lineaGris" />
+	</window>
+</zk>

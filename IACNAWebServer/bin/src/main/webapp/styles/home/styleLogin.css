@@ -1,0 +1,53 @@
+@CHARSET "ISO-8859-1";
+
+/*---------------------------------------------------------------*/
+	.z-textbox-focus, .txt:focus
+	{
+		background-color:#535759 !important;
+	}
+	.z-textbox-disd /*Caja de texto deshabilitada*/
+	{
+		
+	}
+	.txtLogin,.btnAccesar
+	{
+		/*Fuente*/
+		color:white !important;
+		font-family:consolas, sans-serif !important;
+		font-size: 10px !important;		
+	}
+/*---------------------------------------------------------------*/
+.contentLogin.z-hlayout
+{
+	width:330px;	
+	float: right;	
+	margin-right: 120px;
+	margin-top: 30px;	
+}
+.contentLogin .z-hlayout-inner
+{					
+	margin-right: 5px;	
+}
+	.txtLogin
+	{				
+		background-color:gray !important;		
+		padding-left: 5px;
+			
+		float:left;	
+		height:15px;
+		width: 115px;			
+	}	
+	.btnAccesar
+	{	
+		border-style: none;		
+		background-color:orange;	
+		background-image:url(/images/home/boton-accesar.png);	
+		margin-top:1px;
+		height:20px;
+		width: 60px;		 	
+	}
+	
+/*###
+--	Página de activación
+###*/
+

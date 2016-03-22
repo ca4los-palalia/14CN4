@@ -1,0 +1,96 @@
+<?page title="Paso 1" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window zclass="contentInfo" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('p1vm') @init('com.bit.cfdi.web.vm.wizard.Paso1ViewModel')">
+		<div zclass="seccionTitulo"
+			style="padding-bottom:20px !important; position:relative;">
+			<image src="/images/UI/workspaceArea/lapizEditar.png"
+				zclass="imgTitulo" />
+			<label value="Bienvenido a Factureya" zclass="textoTitulo" />
+
+			<label value="Paso 1 de 2" zclass="txtGraySmall noPaso" />
+		</div>
+		<div>
+			<label value="Edita tu Perfil" zclass="txtSubTitulo" />
+			<label
+				value="Esta información es para uso exclusivo de Factureya."
+				sclass="txtInformativo" />
+			<div zclass="lineSeparator" />
+		</div>
+		<vlayout sclass="vlyCorreoUsuario">
+			<label value="Tu corrreo es el usuario titular del sistema:"
+				sclass="txtInformativo" />
+			<label value="@load(p1vm.mailUser)"
+				sclass="txtInformativo lblNombreUsuario" />
+
+			<textbox style="margin-top:10px;"
+				sclass="cajaTexto txtCampo" type="text"
+				value="@bind(p1vm.usuario.persona.nombre)" zclass="txtNombre" />
+			<textbox sclass="cajaTexto txtCampo" type="text"
+				value="@bind(p1vm.usuario.persona.apellidoPaterno)"
+				zclass="txtApPaterno" />
+			<textbox sclass="cajaTexto txtCampo" type="text"
+				value="@bind(p1vm.usuario.persona.apellidoMaterno)"
+				zclass="txtApMaterno" />
+		</vlayout>
+		<!-- seccionTelefonos -->
+		<div zclass="contentTel">
+			<vlayout sclass="vlyTelefonos">
+				<listbox model="@load(p1vm.telefonos)" zclass="rows"
+					selectedItem="@bind(p1vm.selectedPhone)">
+					<listhead>
+						<listheader label="" width="80px"/>
+						<listheader label="" width="150px" />
+						<listheader label="" width="150px"/>
+						<listheader label="" width="40px"/>
+					</listhead>
+					<template name="model" var="telefono">
+						<listitem zclass="rows">
+							<listcell zclass="rows"
+								style="padding-bottom:10px;">
+								<combobox sclass="cmbTelefono"
+									selectedIndex="@bind(telefono.tipoTelefono)">
+									<comboitem
+										image="/images/UI/workspaceArea/casa.png"
+										sclass="imgOpcion">
+									</comboitem>
+									<comboitem
+										image="/images/UI/workspaceArea/cel.png" sclass="imgOpcion">
+									</comboitem>
+									<comboitem
+										image="/images/UI/workspaceArea/oficina.png"
+										sclass="imgOpcion">
+									</comboitem>
+								</combobox>
+							</listcell>
+							<listcell zclass="rows"
+								style="padding-bottom:10px;">
+								<textbox sclass="cajaTexto"
+									zclass="txtNumTel" value="@bind(telefono.numero)" />
+							</listcell>
+							<listcell zclass="rows"
+								style="padding-bottom:10px;">
+								<textbox sclass="cajaTexto"
+									zclass="txtExtTel" value="@bind(telefono.extension)" />
+							</listcell>
+							<listcell zclass="rows"
+								style="padding-bottom:10px;" 
+								onClick="@command('deletePhone')"
+								image="/images/UI/workspaceArea/delete.png"								>
+							</listcell>
+						</listitem>
+					</template>
+				</listbox>
+			</vlayout>
+			<button label="Agregar Teléfono."
+				sclass="btnM btnAgregarDatos"
+				image="/images/UI/navigationArea/reportes-icon.png"
+				onClick="@command('addPhone')" />
+			<div zclass="lineSeparator" style="margin-bottom:10px;" />
+			<button id="btnSiguiente" label="Siguiente"
+				sclass="btnM btnGray btnFloatR"
+				onClick="@global-command('goBusinessForm')">
+			</button>
+		</div>
+	</window>
+</zk>

@@ -1,0 +1,11 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window zclass="withoutZClass">
+		<div>
+			<button onClick="@global-command('changeModule', key='PRODUCTOS')"
+				label="Producto / Servicio" zclass="btnMenu"
+				sclass="btnM btnProdServ" type="button"
+				image="/images/UI/navigationArea/producto.png" />
+		</div>
+	</window>
+</zk>

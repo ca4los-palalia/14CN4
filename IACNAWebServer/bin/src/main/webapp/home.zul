@@ -1,0 +1,69 @@
+<?page title="Home" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="com.bit.cfdi.web.validators.init.CheckForHome" SessionUtils="${sessionUtils}" UsuarioNegocioService="${usuarioNegocioService}"?>
+
+<zk>
+	<script src="/scripts/watermarkPlugin.js" type="text/javascript" />
+	<script src="/scripts/controlsGeneric.js" type="text/javascript" />
+	<style src="/styles/stylesUI/stylesStructure.css" />
+	<style src="/styles/stylesUI/GeneralsStyles.css" />
+	<style src="/styles/stylesUI/stylesConfiguration.css" />
+	<style src="/styles/stylesUI/styleNavigation.css" />
+
+	<window 
+		zclass="pnlContentBody" 
+		sclass="lineaVerticalGris"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('hvm') @init('com.bit.cfdi.web.vm.HomeViewModel')">
+
+		<!-- HEADER DEL SISTEMA -->
+		<div 
+			zclass="divHeader" 
+			sclass="headerStructure">
+			
+			<button 
+				onClick="@global-command('changeModule', key='BIENVENIDO')"
+				src="/images/UI/logo.png" 
+				zclass="imgLogoUI imgLogoBoton" />
+				
+			<include 
+				src="/structure/regionHeader.zul"
+				zclass="divInclude" />
+		</div>
+		<!-- TERMINA HEADER DEL SISTEMA -->
+
+		<!-- INICIA SECCION CENTRAL DEL SISTEMA -->
+		<div 
+			zclass="divContentCenter">
+			
+			<!-- INICIA SECCION DE NAVEGACION -->
+			<div id="navigationPanel" zclass="divWest">
+			</div>
+			<!-- FIN - SECCION NAVEGACION -->
+
+			<!-- INICIA SECCION AREA DE TRABAJO -->
+			<div zclass="divContentCenterEast">
+				<tabbox 
+					id="tbxNavegacion" 
+					zclass="tbx"
+					orient="horizontal" 
+					style="850px"
+					selectedIndex="@bind(hvm.selectedIndex)">
+					
+					<tabs style="height:0px; width:0px;">
+					</tabs>
+					<tabpanels zclass="tabpanels">
+					</tabpanels>
+				</tabbox>
+			</div>
+			<!-- FIN SECCION AREA DE TRABAJO -->
+		</div>
+		<!-- TERMINA SECCION CENTRAL DEL SISTEMA -->
+		
+		<!-- INICIA FOOTER DEL SISTEMA -->
+		<div zclass="divFooter">
+			<include src="/structure/footer.zul" />
+		</div>
+		<!-- TERMINA FOOTER DEL SISTEMA -->
+	</window>
+</zk>

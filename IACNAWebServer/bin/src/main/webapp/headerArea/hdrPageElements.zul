@@ -1,0 +1,46 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<style src="/styles/stylesUI/styleHeader.css" />
+	<zscript>
+		java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat(
+				com.bit.cfdi.web.constants.CFDIConstants.CFDI_DATE_FORMAT, 
+				com.bit.cfdi.web.constants.CFDIConstants.MEXICO_LOCALE);
+		String firstDate = sdf.format(new Date());
+	</zscript>
+	<window 
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('hdrvm') @init('com.bit.cfdi.web.vm.HeaderViewModel')">		
+		<hlayout 
+			sclass="hlyContentDateTime">
+			<label 
+				id="timeLabel"
+				zclass="lblFecha" 
+				value="${firstDate}"/>
+			<div 
+				zclass="txtBtnBuscar">
+				<textbox 
+					id="idBuscar" 
+					value="" zclass="txtBuscar" />
+				<button 
+					image="/images/UI/icono-buscar.png"
+					zclass="btnBuscar" sclass="btn" 
+					tooltiptext="Buscar" />
+			</div>
+			<button 
+				label="Salir" 
+				zclass="btnSalir" 
+				sclass="btn"
+				tooltiptext="Salir" 
+				onClick="@command('doLogOut')" />
+		</hlayout>
+		<timer 
+			id="timer" 
+			delay="1000" 
+			repeats="true">
+			<attribute 
+				name="onTimer">
+				timeLabel.setValue(sdf.format(new Date()));
+			</attribute>
+		</timer>
+	</window>
+</zk>

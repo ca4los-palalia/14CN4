@@ -1,0 +1,120 @@
+<?page title="reportesWorkspace" contentType="text/html;charset=UTF-8"?>
+	
+<window sclass="contentPageReportes" zclass="divContentCenterEast">
+		<div self="@{define(workspace)}"
+			sclass="contentPage pagReportes lineaVerticalGris"
+			zclass="divCenter">
+			<div zclass="seccionTitulo">
+				<image src="/images/UI/navigationArea/reportes-icon.png"
+					zclass="imgTitulo" />
+				<label value="Reportes" zclass="textoTitulo" />
+			</div>
+			<div sclass="subtituloConImagen">
+				<image src="/images/UI/criterios.png"
+					sclass="imgSubtitulo" />
+				<label sclass="txtSubTitulo txtImg"
+					value="Criterios de Búsqueda" />
+			</div>
+			<hlayout sclass="hlyCriteriosBusqueda">
+				<vlayout sclass="col1">
+					<textbox sclass="cajaTexto" zclass="txtRFC" />
+					<textbox sclass="cajaTexto" style="width:220px;"
+						zclass="txtSerie" />
+					<combobox sclass="txtMetodoPago"></combobox>
+					<checkbox label="Facturas con pago parcial"
+						sclass="txtInformativo chkCriteriosBusqueda" />
+				</vlayout>
+				<vlayout sclass="col2">
+					<hlayout>
+						<textbox sclass="cajaTexto" style="width:190px;"
+							zclass="txtFolio" />
+						<button label="Buscar" sclass="btnM btnGray" />
+					</hlayout>
+					<div style="position:relative; margin-top:2px;">
+						<label sclass="txtInformativo lblFecha"
+							value="Fecha de inicio" />
+						<span style="position:absolute; right:0px;">
+							<datebox sclass="dtbFechaInicio" />
+						</span>
+					</div>
+					<div style="position:relative; margin-top:5px;">
+						<label sclass="txtInformativo lblFecha"
+							value="Fecha de terminación" />
+						<span style="position:absolute; right:0px; ">
+							<datebox sclass="dtbFechaTerminación" />
+						</span>
+					</div>
+					<checkbox label="Facturas de crédito"
+						sclass="txtInformativo chkCriteriosBusqueda" />
+				</vlayout>
+			</hlayout>
+			<div zclass="lineSeparator" />
+			<!-- SECCIÓN COMPROBANTES FISCALES EMITIDOS -->
+			<div sclass="subtituloConImagen">
+				<image src="/images/UI/result.png"
+					sclass="imgSubtitulo" />
+				<label sclass="txtSubTitulo txtImg"
+					value="Comprobantes Fiscales Digitales Emitidos" />
+			</div>
+			<div style="margin-top:20px;">
+				<checkbox label="Seleccionar todos"
+					sclass="txtInformativo" />
+				<button label="Cancelar"
+					sclass="btnM btnGray btnFloatR" />
+				<button label="Descargar comprobante"
+					sclass="btnM btnGray btnFloatR" />
+			</div>
+			<div sclass="bordesGv" zclass="contentGvReportes">
+				<grid>
+					<columns sclass="contentColumnsGv">
+						<column>Serie</column>
+						<column>Folio</column>
+						<column>Fecha</column>
+						<column>Receptor</column>
+						<column>UUID</column>
+						<column>Tipo de CFDI</column>
+						<column>Estado</column>
+						<column>Moneda</column>
+						<column>T. cambio</column>
+						<column>IVA</column>
+						<column>T. IVA</column>
+						<column>Subtotal</column>
+						<column>Total</column>
+						<column>Met. pago</column>
+						<column>T. pago parcial</column>
+						<column>No. parcial</column>
+						<column>T. pago credito</column>
+						<column>F. pago credito</column>
+					</columns>
+				</grid>
+			</div>
+			<div zclass="contentBtnPdfExcel">
+				<label value="Descargar reporte" sclass="txtInformativo"
+					style="display:block;" />
+				<button label="PDF" sclass="btnM btnPDF" />
+				<button label="EXCEL" sclass="btnM btnExcel" style="" />
+				<button label="Enviar comprobante por e-mail"
+					sclass="btnM btnGray btnFloatR" />
+			</div>
+		</div>
+		<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+		<!-- Incluyendo la página de la región de configuración -->
+		<div self="@{define(configurationArea)}"
+			sclass="includeConfiguration" zclass="divEast">
+			<div zclass="pagecReportes">
+				<label value="Opciones" zclass="txtGraySmall" />
+				<div sclass="lineGray" style="margin-top:5px;"
+					zclass="lineSeparator" />
+				<groupbox open="false">
+					<caption label="Campos Extras"
+						sclass="txtTituloC">
+						<div zclass="imgFlecha" />
+					</caption>
+					<div style="margin-left:10px;">
+						"No hay campos extras"											
+					</div>
+				</groupbox>
+			</div>
+		</div>
+		<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+</window>

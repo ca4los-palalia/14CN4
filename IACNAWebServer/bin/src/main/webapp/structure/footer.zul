@@ -1,0 +1,19 @@
+<?page title="Pie de pagina" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<style src="/styles/home/styleFooter.css"  />
+	<hlayout sclass="contentFooter" self="@{define(footer) }">
+		<label value="Comunidad de facturación electrónica AMFE®" sclass="firstColumn" />		
+		<label value="Con procesos digitales, todo es más rápido y seguro" sclass="secondColumn" />	
+		<div sclass="thirdColumn">
+			<hlayout>
+				<a label="Sobre Nosotros" href="#" />
+				-
+				<a label="Soporte" href="#"/>
+				-
+				<a label="Ubicaciones" href="#" />
+				-
+				<a label="2011 factureya®" href="#" />
+			</hlayout>
+		</div>
+	</hlayout>
+</zk>

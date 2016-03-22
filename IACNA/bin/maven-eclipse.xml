@@ -1,0 +1,14 @@
+<project default="copy-resources">
+  <target name="init"/>
+  <target name="copy-resources" depends="init">
+    <copy todir="target/classes/spring" filtering="false">
+      <fileset dir="src/main/resources/configuration/spring" includes="**/*.xml" excludes="**/*.java"/>
+    </copy>
+    <copy todir="target/classes/hibernate" filtering="false">
+      <fileset dir="src/main/resources/configuration/hibernate" includes="**/*cfg.xml" excludes="**/*.java"/>
+    </copy>
+    <copy todir="target/classes/media" filtering="false">
+      <fileset dir="src/main/resources/configuration/media" includes="**/*.jpg|**/*.png|**/*.gif|**/*.ico|**/*.exe|**/*.jar" excludes="**/*.java"/>
+    </copy>
+  </target>
+</project>

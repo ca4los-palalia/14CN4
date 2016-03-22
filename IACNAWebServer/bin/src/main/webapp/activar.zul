@@ -1,0 +1,73 @@
+<?page title="Activar" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="com.bit.cfdi.web.validators.init.CheckLoged" SessionUtils="${sessionUtils}"?>
+<zk>
+	<script src="/scripts/watermarkPlugin.js" type="text/javascript" />
+	<script src="/scripts/controlsGeneric.js" type="text/javascript" />
+	<window
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('avm') @init('com.bit.cfdi.web.vm.ActivarViewModel')"
+		>		
+		<borderlayout sclass="contentPageLogin" width="980px">
+			<north sclass="headerHome" height="85px">
+				<div sclass="childrenNorth">			
+				</div>
+			</north>
+			<center sclass="centerHome">
+				<div>
+					<div zclass="regionLeft">
+						<image src="/images/home/logo-index.png"
+							zclass="imgLogo" />
+					</div>
+					<div zclass="regionRigth">
+						<div zclass="contentLeyenda leyendaActivar">
+							<label value="Activa tu cuenta ahora mismo:"
+								zclass="queEs" />								
+							<hlayout>
+								<textbox 
+									type="text" 
+									instant="true"
+									sclass="txtActivar" 
+									tooltiptext="Código de Activación" 
+									constraint="/.{20}/: codigo inválido"
+									value="@bind(avm.codigoActivacion)"/>
+								<button 
+									label="Activar"
+									sclass="btnActivar" 
+									type="button"
+									tooltiptext="Activar"
+									onClick="@command('doActivation')"
+									disabled="@load(empty avm.codigoActivacion)"/>
+							</hlayout>							
+						</div>
+					</div>	
+				</div>
+			</center>
+			<south sclass="footHome" height="50px">
+				<div>
+					<div sclass="lineFooter" />
+					<hlayout sclass="contentFooter"
+						self="@{define(footer) }">
+						<label
+							value="Comunidad de facturación electrónica AMFE®"
+							sclass="firstColumn" />
+						<label
+							value="Con procesos digitales, todo es más rápido y seguro"
+							sclass="secondColumn" />
+						<div sclass="thirdColumn">
+							<hlayout>
+								<a label="Sobre Nosotros" href="#" />
+								-
+								<a label="Soporte" href="#" />
+								-
+								<a label="Ubicaciones" href="#" />
+								-
+								<a label="2011 factureya®" href="#" />
+							</hlayout>
+						</div>
+					</hlayout>
+				</div>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

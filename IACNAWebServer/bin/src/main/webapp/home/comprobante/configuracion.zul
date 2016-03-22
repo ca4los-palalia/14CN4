@@ -1,0 +1,146 @@
+<?page title="Configuracion" contentType="text/html;charset=UTF-8"?>
+
+<window sclass="contentPageWConfiguration" zclass="divContentCenterEast">
+	<div sclass="contentPage pagFactura lineaVerticalGris" 
+		zclass="divCenter">
+				
+		<div zclass="seccionTitulo">
+			<image src="/images/UI/navigationArea/Facturas.png" zclass="imgTitulo" />
+			<label value="Configuración" zclass="textoTitulo" />
+		</div>	
+		<!-- SECCIÓN CORREO ELECTRONICO -->
+		<groupbox open="true" style="margin-top:50px !important;" >
+			<caption label="Correo Electrónico" zclass="txtSubTitulo">												
+				<div zclass="imgFlecha"/>								
+			</caption>
+			<div style="float:none; clear:both;">				
+				<vlayout sclass="vlyCorreoElectronico">
+					<combobox sclass="" value="" />
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="servidorSMTP"/>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="puertoSalida"/>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtCorreoElectronico"/>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtPassword"/>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="emailSalida"/>
+					<checkbox label="Activar SSL" sclass="textoAzul" style="display:block; margin-top:5px;" />
+					<textbox sclass="txtBordeGris cajaTexto" type="text" multiline="true" zclass="contenidoMail" />
+				</vlayout>	
+				<div style="clear:both; width:97%;">				
+					<button label="Actualizar" sclass="btnM btnGray btnFloatR"/>
+					<button label="Test" sclass="btnM btnGray btnFloatR"/>				
+				</div>
+			</div>
+		</groupbox>
+		
+		<!-- SECCIÓN CATÁLOGO MONEDAS -->
+		<groupbox open="true" style="margin-top:50px !important;">
+			<caption label="Catálogo Monedas" zclass="txtSubTitulo">												
+				<div zclass="imgFlecha"/>								
+			</caption>
+			<div style="float:none; clear:both;" zclass="seccionCatalogoMonedas">				
+				<div style="clear:both; width:97%;">
+					<button label="+ Agregar" sclass="btnM btnGray btnFloatR"/>
+				</div>
+				<hlayout style="float:none; clear:both; margin-top:50px; height:20px;">
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtClave"/>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtNombre"/>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtCambio"/>
+					<button label="Aceptar" sclass="btnM btnGray btnFloatR"/>
+					<button label="Cancelar" sclass="btnM btnGray btnFloatR"/>				
+				</hlayout>			
+				<div class="divContenTxt">
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="tipoMoneda"/>
+					<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="tipoMoneda"/>
+				</div>
+				<div>
+					<div sclass="bordesGv" zclass="contentGvMonedas">
+						<grid>
+							<columns sclass	="contentColumnsGv">				
+								<column>CLAVE</column>
+								<column>MONEDA</column>
+								<column>TIPO DE CAMBIO</column>
+							</columns>
+						</grid>
+					</div>
+					<div sclass="barraPieGv">
+						<label value="0 Resultados" />
+					</div>
+				</div>			
+			</div>
+		</groupbox>
+		
+		<!-- SECCIÓN LEYENDAS -->
+		<groupbox open="true" style="margin-top:50px !important;">
+			<caption label="Leyendas" zclass="txtSubTitulo">												
+				<div zclass="imgFlecha"/>								
+			</caption>
+			<div style="margin-top:5px;" zclass="seccionLeyendas" visible="false">							
+				<div zclass="seccionEditarLeyenda">
+					<label value="[Nombre de leyenda]"  sclass="txtInformativo cajaTexto" zclass="lblNombreLeyenda"/>
+					<div>				
+						<textbox sclass="txtBordeGris cajaTexto" type="text" multiline="true" zclass="txtContenidoLeyenda" />
+					</div>
+					<div style="clear:both; width:95%;">				
+						<button label="Aceptar" sclass="btnM btnGray btnFloatR"/>
+						<button label="Cancelar" sclass="btnM btnGray btnFloatR"/>
+					</div>
+					<vlayout style="clear:both; float:none; width:500px; padding-left:8px;">
+						<label value="Nota: Los siguientes atributos puede utilizar para que el sistema ingrese de forma 
+							automatica el valor del dato:" zclass="txtInformativo"/>
+						<label value="[fecha pago factura]" zclass="txtInformativo"/>
+						<label value="[razon social emisor]" zclass="txtInformativo"/>
+						<label value="[ciudad emisor]" zclass="txtInformativo"/>
+						<label value="[porcentaje pagare]" zclass="txtInformativo"/>
+						<label value="Ejemplo: El cliente se compromete a pagar el siguiente pagare con el porcentaje 
+							[porcentaje pagare]" zclass="txtInformativo"/>
+					</vlayout>
+				</div>				
+			</div>
+			<div sclass="bordesGv" zclass="contentGvLeyendas">
+				<grid>
+					<columns sclass	="contentColumnsGv">				
+						<column sclass="colTitulo">TITULO</column>
+						<column sclass="colLeyenda">LEYENDA</column>						
+					</columns>
+					<rows>
+						<row>
+							<label value="Factura a Crédito" />
+							<label sclass="rowLayenda" value="Esta factura deberá ser pagada en una sola exhibición y será válida si muestra la cantidad impresa 
+por máquina registradora o sello y firma del cajero o bien, comprobante de pago, o de depósito o transferencia SPEI bancaria con cuenta destino 
+asignada por [razon social emisor] para este proposito. El pago de esta factura no libera no libera el cliente  de adeudos anteriores o de 
+consumos no incluidos en la misma. Los títulos de crédito dados en pago por el suscriptor, en los casos autorizados, serán recibidos bajo la
+condición salvo buen cobro. Con base en el Artículo de la Ley General de Títulos de Operaciones de Crédito, [razon social emisor] cobra el 20%
+de indemnización por el concepto de Cheques Devueltos." />
+						</row>
+						<row>
+							<label value="Donataria" />
+							<label sclass="rowLayenda" value="Este comprobante ampara un donativo, el cual será destinado por la donataria para los fines propios de su 
+objeto social. En el caso de que los bienes donados hayan sido deducidos previamente para los efectos del impuesto sobre la renta, este donativo
+no es deducible. La reproducción no autorizada de este comprobante constituye un delito en los términos de las disposiciones fiscales." />
+						</row>
+						<row>
+							<label value="Pagaré" />
+							<label sclass="rowLayenda" value="Debo(emos) y pagare(mos) incondicionalmente, a la vista y a la orden de [razon social emisor] la cantidad
+anotada en esta factura, en la ciudad de [ciudad emisor], si no fuere pagado satisfactoriamente este pagaré me(nos) obligo(amos) a pagar durante 
+todo el tiempo que permaneciera total o parcialmente insoluto, intereses moratorios a razón del [porcentaje pagare]% mensual sin que por esto considere
+prorrogado el plazo fijado para cumplir esta obligacion. LA FIRMA DE ESTE COMPROBANTE DARA COMO ACEPTADO ESTE PAGARE." />
+						</row>
+					</rows>
+				</grid>
+			</div>
+		</groupbox>	
+		
+		<!-- SECCION MANEJO DECIMALES -->
+		<groupbox open="true" style="margin-top:50px !important;">
+			<caption label="Manejo Decimales" zclass="txtSubTitulo">												
+				<div zclass="imgFlecha"/>								
+			</caption>
+			<div zclass="seccionManejoDecimales">	
+				<hlayout>
+					<label value="Número de decimales" />
+					<combobox sclass="noDecimales" value="" />
+				</hlayout>					
+				<button label="Actualizar" sclass="btnGray btnFloatR" style="margin-top:0px !important;"/>	
+			</div>
+		</groupbox>			
+	</div>
+</window>	

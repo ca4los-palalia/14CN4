@@ -1,0 +1,75 @@
+<?page title="Perfil - Datos personales" contentType="text/html;charset=UTF-8"?>
+	
+<window>	
+	<script src="/scripts/watermarkPlugin.js" type="text/javascript" />
+	<script src="/scripts/controlsGeneric.js" type="text/javascript" />
+
+	<div sclass="contentPage lineaVerticalGris" zclass="divCenter">
+		<div zclass="seccionTitulo">
+			<image src="/images/UI/workspaceArea/lapizEditar.png" zclass="imgTitulo" />
+			<label value="Perfil" zclass="textoTitulo" />
+		</div>			
+		<label value="Datos personales" zclass="txtSubTitulo" />
+		<label value="Esta información es para uso exclusivo de Factureya" zclass="txtInformativo" />			
+		<div zclass="lineSeparator" />		
+		<vlayout sclass="vlyPassName">
+			<textbox sclass="cajaTexto txtCampo" type="text" value="" zclass="txtContraseniaAnt" />
+			<textbox sclass="cajaTexto txtCampo" type="text" value="" zclass="txtPassword"/>
+			<textbox sclass="cajaTexto txtCampo" type="text" value="" zclass="txtRepPassword"/>			
+				<label value="Para utilizar el sistema sin contraseña, deja los campos en blanco" zclass="txtOrangeIndicacion" />			
+			<textbox style="margin-top:10px;" sclass="cajaTexto txtCampo" type="text" value="" zclass="txtNombre"  />
+			<textbox sclass="cajaTexto txtCampo"  type="text" value="" zclass="txtApPaterno" />
+			<textbox sclass="cajaTexto txtCampo" type="text" value="" zclass="txtApMaterno" />			
+		</vlayout>	 		 
+ 		<!-- seccionTelefonos -->
+ 		<div zclass="contentTel">
+ 			<vlayout sclass="vlyTelefonos">
+ 				<hlayout sclass="filaTelefono">
+ 					<combobox sclass="cmbTelefono">
+ 						<comboitem
+ 							image="/images/UI/workspaceArea/casa.png" sclass="imgOpcion">
+ 						</comboitem>
+ 						<comboitem
+ 							image="/images/UI/workspaceArea/cel.png" sclass="imgOpcion">
+ 						</comboitem>
+ 						<comboitem
+ 							image="/images/UI/workspaceArea/oficina.png"
+ 							sclass="imgOpcion">
+ 						</comboitem>
+ 					</combobox>
+ 					<textbox sclass="cajaTexto" zclass="txtNumTel" />
+ 					<textbox sclass="cajaTexto" zclass="txtExtTel" />
+ 					<button sclass="btnM"
+ 						image="/images/UI/workspaceArea/delete.png" />
+ 				</hlayout>
+ 			</vlayout>
+ 			<button label="Agregar Teléfono."
+ 				sclass="btnM btnAgregarDatos"
+ 				image="/images/UI/navigationArea/reportes-icon.png" />
+ 		</div>
+ 		<!-- seccionCorreo -->
+ 		<div zclass="contentCorreo">
+ 			<vlayout sclass="vlyCorreosPerfil">
+ 				<hlayout>
+ 					<textbox sclass="cajaTexto txtCampo"
+ 						zclass="txtEmailCompany" />
+ 					<button image="/images/UI/workspaceArea/delete.png"
+ 						sclass="btnM" />
+ 				</hlayout>
+ 			</vlayout>
+ 			<button id="btnAgregarCorreo" label="Agregar Correo."
+ 				sclass="btnM btnAgregarDatos"
+ 				image="/images/UI/navigationArea/reportes-icon.png" />
+ 		</div>
+ 		<vlayout sclass="vlyImagenUsuario">
+			<image src="/images/UI/workspaceArea/user.png" />
+			<label value="Tamaño en pixeles preferido 123 x 123" sclass="txtGrayIndication"/>
+			<label value="Tamaño máximo 512 Kb" sclass="txtGrayIndication" />
+			<div>
+					<fileupload label="Imagen del negocio" sclass="btnFUp" />
+			</div>
+		</vlayout>		
+	 	<div zclass="lineSeparator" />	 		 				
+		<button label="Guardar" sclass="btnM btnGray btnFloatR"   />
+	</div>
+</window>			

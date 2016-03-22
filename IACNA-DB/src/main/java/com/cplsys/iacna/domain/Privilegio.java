@@ -1,0 +1,105 @@
+package com.cplsys.iacna.domain;
+
+import java.io.Serializable;
+import java.util.Calendar;
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Version;
+
+@Entity
+@Table
+public class Privilegio implements Serializable {
+
+	private static final long serialVersionUID = 9129578328242917126L;
+	private Integer idPrivilegios;
+	private boolean productionSupervisor;
+	private boolean productionCalidad;
+	private boolean superUser;
+	private boolean productionHeads;
+	private Usuario usuario;
+	private Calendar fechaModificacion;
+
+	@Id
+	@Column(name = "idPrivilegio")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Integer getIdPrivilegios() {
+		return idPrivilegios;
+	}
+
+	public void setIdPrivilegios(Integer idPrivilegios) {
+		this.idPrivilegios = idPrivilegios;
+	}
+
+	@Basic
+	@Column
+	public boolean isProductionSupervisor() {
+		return productionSupervisor;
+	}
+
+	public void setProductionSupervisor(boolean productionSupervisor) {
+		this.productionSupervisor = productionSupervisor;
+	}
+
+	@Basic
+	@Column
+	public boolean isProductionCalidad() {
+		return productionCalidad;
+	}
+
+	public void setProductionCalidad(boolean productionCalidad) {
+		this.productionCalidad = productionCalidad;
+	}
+
+	@Basic
+	@Column
+	public boolean isSuperUser() {
+		return superUser;
+	}
+
+	public void setSuperUser(boolean superUser) {
+		this.superUser = superUser;
+	}
+
+	@Basic
+	@Column
+	public boolean isProductionHeads() {
+		return productionHeads;
+	}
+
+	public void setProductionHeads(boolean productionHeads) {
+		this.productionHeads = productionHeads;
+	}
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "idUsuario")
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Version
+	@Column
+	public Calendar getFechaModificacion() {
+		return fechaModificacion;
+	}
+
+	public void setFechaModificacion(Calendar fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
+
+}

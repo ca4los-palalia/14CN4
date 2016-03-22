@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<project name="build project" default="run-maven" basedir=".">
+    <target name="run-maven">
+    	<exec dir="." executable="mvn"> 
+    		<arg line="clean compile install eclipse:eclipse" /> 
+    	</exec>
+    </target>
+</project>

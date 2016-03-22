@@ -1,0 +1,22 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+
+<window zclass="divContentCenterEast">	
+	<div sclass="contentPage pagRespaldoDeInformacion lineaVerticalGris"  self="@{define(workspace)}" 
+		zclass="divCenter">  
+		<div zclass="seccionTitulo">
+			<image src="/images/UI/backup_icon.png" zclass="imgTitulo" />
+			<label value="Respaldo de Información" zclass="textoTitulo" />
+		</div>	
+		
+		<hlayout>
+			<div zclass="fUpload" sclass="opcCrear">
+				<fileupload sclass="btnFUp" style="display:block;" />
+				<label sclass="txtInformativo" style="display:block;"  value="Crear respaldo"   />
+			</div>
+			<div zclass="fUpload" sclass="opcRestaurar">
+				<fileupload sclass="btnFUp" style="display:block;" />
+				<label sclass="txtInformativo" style="display:block;"  value="Restaurar desde un respaldo"   />								
+			</div>
+		</hlayout>
+	</div>
+</window>

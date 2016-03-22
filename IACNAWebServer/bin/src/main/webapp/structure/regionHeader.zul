@@ -1,0 +1,6 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<div self="@{define(header) }">		
+		<include src="/headerArea/hdrPageElements.zul" />			
+	</div>
+</zk>

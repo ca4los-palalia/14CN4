@@ -1,0 +1,156 @@
+<?page title="Navigation Area Page 1" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<style src="/styles/stylesUI/styleNavigation.css" />
+	<!-- Foto, nombre y correo de usuario -->
+<window>
+	<div zclass="divFotoUsuario">
+		<button href="/home/datos_personales_perfil.zul"
+			zclass="btnInfoUsuario cursorManita" />
+		<hlayout sclass="cursorManita">
+			<image width="50px" height="50px" zclass="imagenUsuario"
+				src="/images/UI/navigationArea/el.png" />
+			<vlayout>
+				<label value="Jesus del sagrado corazón de Jesús"
+					zclass="nombreUsuario" tooltiptext="Nombre del usuario y apellidos"
+					sclass="cursorManita" />
+				<label value="correousuario@hotmail.com"
+					zclass="correoUsuario" tooltiptext="correousuario@hotmail.com"
+					sclass="cursorManita" />
+			</vlayout>
+		</hlayout>
+	</div>
+
+	<div zclass="lineaGris" />
+
+	<!-- Logo y nombre de la empresa -->
+	<div zclass="divFotoEmpresa">
+		<div zclass="divPruebas" sclass="textoAzul">
+			Pruebas
+			<button type="button"
+				image="/images/UI/navigationArea/collapsed.png"
+				sclass="btnLink cursorManita" tooltip="agregarNegocio"
+				zclass="imgCollapsed" />
+		</div>
+		<div zclass="divImgNegocio">
+			<image src="/images/UI/navigationArea/logo.png"
+				zclass="imgNegocio" />
+		</div>
+		<div zclass="divPruebas">
+			<image src="/images/UI/navigationArea/owner.png"
+				style="margin-left:30%;" />
+			<button label="Editar"
+				href="/home/configurar_cuenta_negocio.zul"
+				sclass="textoAzul btnLink editar cursorManita" zclass="imgCollapsed"
+				tooltiptext="Modifica los datos del negocio." />
+		</div>
+	</div>
+	<popup id="agregarNegocio" zclass="popUpNuevoNegocio">
+		<div sclass="txtInformativo">No hay otros negocios</div>
+		<button href="/home/agregar_nuevo_negocio.zul"
+			label="Agregar nuevo negocio +" zclass="btnM" />
+	</popup>
+
+	<div zclass="lineaGris" />
+
+	<vlayout>
+		<hlayout>
+			<label value="Cert:" zclass="lblCampo"
+				sclass="txtGrisLighter" />
+			<label value="N/A" zclass="lblValorCampo"
+				sclass="txtRojoLighter" />
+		</hlayout>
+		<hlayout>
+			<label value="Expira:" zclass="lblCampo"
+				sclass="txtGrisLighter" />
+			<label value="N/A" zclass="lblValorCampo"
+				sclass="txtRojoLighter" />
+		</hlayout>
+	</vlayout>
+
+	<div zclass="lineaGris" />
+
+	<div>
+		<label value="Sucursal sin nombre" zclass="lblNombreSucursal"
+			sclass="txtGrisBold" />
+	</div>
+
+	<div zclass="lineaGris" />
+
+	<div>
+		<label value="No hay Series" zclass="lblSeries"
+			sclass="txtGrisBold" />
+	</div>
+
+	<div zclass="lineaGris" />
+
+
+	<div zclass="contentMenu">
+		<image src="/images/UI/navigationArea/Facturas.png"
+			zclass="imgHeaderPanel" />
+		<panel title="Factura" border="normal" collapsible="true"
+			zclass="headPanel" open="true">
+			<panelchildren zclass="pnlChildren">
+				<div>
+					<button href="/home/factura.zul"
+						label="Factura" zclass="btnSubmenu" sclass="btnM" type="button"
+						image="/images/UI/navigationArea/iconCitas.png" />
+				</div>
+				<div>
+					<button href="/home/nota_credito.zul"
+						label="Nota de Crédito" zclass="btnSubmenu" sclass="btnM"
+						type="button" image="/images/UI/navigationArea/iconCitas.png" />
+				</div>
+				<div>
+					<button href="/home/recibo.zul"
+						label="Recibo" zclass="btnSubmenu" sclass="btnM" type="button"
+						image="/images/UI/navigationArea/iconCitas.png" />
+				</div>
+				<div>
+					<button
+						href="/home/recibo_donataria.zul"
+						label="Recibo de Donataria" zclass="btnSubmenu" sclass="btnM"
+						type="button" image="/images/UI/navigationArea/iconCitas.png" />
+				</div>
+				<div>
+					<button href="/home/carta_porte.zul"
+						label="Carta Porte" zclass="btnSubmenu" sclass="btnM"
+						type="button" image="/images/UI/navigationArea/iconCitas.png" />
+				</div>
+				<div>
+					<button
+						href="/home/configuracion.zul"
+						label="Configuración" zclass="btnSubmenu"
+						sclass="btnM btnConfiguracion" type="button"
+						image="/images/UI/navigationArea/Facturas.png" />
+				</div>
+			</panelchildren>
+		</panel>
+		<div>
+			<button href="/home/reportes.zul"
+				label="Reportes" zclass="btnMenu" sclass="btnM" type="button"
+				image="/images/UI/navigationArea/reportes-icon.png" />
+		</div>
+		<div>
+			<button href="/home/clientes.zul"
+				label="Clientes" zclass="btnMenu btnClientes"
+				sclass="btnM btnClientes" type="button"
+				image="/images/UI/navigationArea/clientes.png" />
+		</div>
+		<div>
+			<button href="/home/producto_servicio.zul"
+				label="Producto / Servicio" zclass="btnMenu"
+				sclass="btnM btnProdServ" type="button"
+				image="/images/UI/navigationArea/producto.png" />
+		</div>		
+		
+		<!-- 
+		<div>
+			<button href="/home/respaldo_informacion.zul"
+				label="Respaldo" zclass="btnMenu" sclass="btnM btnProdServ" type="button"
+				image="/images/UI/backup_icon.png" />
+		</div>
+		 -->
+		 		 
+	</div>
+</window>
+</zk>

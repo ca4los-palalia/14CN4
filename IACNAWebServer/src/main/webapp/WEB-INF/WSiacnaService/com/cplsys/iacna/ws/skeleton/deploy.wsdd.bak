@@ -1,0 +1,179 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from WSiacnaService WSDL service -->
+
+  <service name="WSiacna" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://skeleton.ws.iacna.cplsys.com"/>
+      <parameter name="wsdlServiceElement" value="WSiacnaService"/>
+      <parameter name="schemaQualified" value="http://skeleton.ws.iacna.cplsys.com"/>
+      <parameter name="wsdlServicePort" value="WSiacna"/>
+      <parameter name="className" value="com.cplsys.iacna.ws.skeleton.WSiacnaSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="WSiacna"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="isIngredienteAsignadoAPrepesado" qname="operNS:isIngredienteAsignadoAPrepesado" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:isIngredienteAsignadoAPrepesadoReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ingrediente" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getTotalIngredientesPorBascula" qname="operNS:getTotalIngredientesPorBascula" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getTotalIngredientesPorBasculaReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:bascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="updateSumatoriaBatchPesoObtenido" qname="operNS:updateSumatoriaBatchPesoObtenido" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" soapAction="" >
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:bascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:descripcion" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:nuevoBatch" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getSavedBatchsRegistroProduccion" qname="operNS:getSavedBatchsRegistroProduccion" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getSavedBatchsRegistroProduccionReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idRegistroProduccion" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:pesoObtenido" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:addressMemory" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getUltimoRegistroBacthProduccion" qname="operNS:getUltimoRegistroBacthProduccion" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getUltimoRegistroBacthProduccionReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="getIdFormula" qname="operNS:getIdFormula" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getIdFormulaReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="updateBatch" qname="operNS:updateBatch" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" soapAction="" >
+        <parameter qname="pns:batchActual" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="setBatchsCompleteBascula" qname="operNS:setBatchsCompleteBascula" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" soapAction="" >
+        <parameter qname="pns:idBascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:batchs" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getBatchsCompleteBascula" qname="operNS:getBatchsCompleteBascula" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getBatchsCompleteBasculaReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idBascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getSumatoriaBatchPesoObtenido" qname="operNS:getSumatoriaBatchPesoObtenido" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getSumatoriaBatchPesoObtenidoReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:double" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:bascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:descripcion" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="updateTotalBatchProcesados" qname="operNS:updateTotalBatchProcesados" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" soapAction="" >
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:bascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:descripcion" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:nuevoBatch" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getIdRegistroProduccion" qname="operNS:getIdRegistroProduccion" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getIdRegistroProduccionReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ingrediente" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getTotalBachtProcesados" qname="operNS:getTotalBachtProcesados" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getTotalBachtProcesadosReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:double" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:bascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:descripcion" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="verificarFormulaCargadaEnPLC" qname="operNS:verificarFormulaCargadaEnPLC" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:verificarFormulaCargadaEnPLCReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:formula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="formulaRegistradaEnPLC" qname="operNS:formulaRegistradaEnPLC" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" soapAction="" >
+        <parameter qname="pns:formula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="isBasculaModoManual" qname="operNS:isBasculaModoManual" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:isBasculaModoManualReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:bascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="isBasculaPrepesado" qname="operNS:isBasculaPrepesado" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:isBasculaPrepesadoReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:bascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getDescripcionBascula" qname="operNS:getDescripcionBascula" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getDescripcionBasculaReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:bascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="isBasculaHabilitada" qname="operNS:isBasculaHabilitada" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:isBasculaHabilitadaReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:bascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getBasculaNombre" qname="operNS:getBasculaNombre" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getBasculaNombreReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:bascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="deshabilitarBascula" qname="operNS:deshabilitarBascula" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" soapAction="" >
+        <parameter qname="pns:bascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="habilitarBascula" qname="operNS:habilitarBascula" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" soapAction="" >
+        <parameter qname="pns:bascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="setDescripcionBascula" qname="operNS:setDescripcionBascula" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" soapAction="" >
+        <parameter qname="pns:bascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:descripcion" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getTurnoFormula" qname="operNS:getTurnoFormula" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getTurnoFormulaReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="isFormulaCancelada" qname="operNS:isFormulaCancelada" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:isFormulaCanceladaReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getBatchsFormula" qname="operNS:getBatchsFormula" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getBatchsFormulaReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getNombreIngrediente" qname="operNS:getNombreIngrediente" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getNombreIngredienteReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ingrediente" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getBasculaIngrediente" qname="operNS:getBasculaIngrediente" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getBasculaIngredienteReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ingrediente" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getToleranciaMinima" qname="operNS:getToleranciaMinima" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getToleranciaMinimaReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:double" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ingrediente" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getToleranciaMaxima" qname="operNS:getToleranciaMaxima" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getToleranciaMaximaReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:double" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ingrediente" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getNombreFormula" qname="operNS:getNombreFormula" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getNombreFormulaReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="isFormulaDespachada" qname="operNS:isFormulaDespachada" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:isFormulaDespachadaReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getMpIngrediente" qname="operNS:getMpIngrediente" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getMpIngredienteReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ingrediente" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="setModoManualBascula" qname="operNS:setModoManualBascula" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" soapAction="" >
+        <parameter qname="pns:bascula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="setFormulaDespachada" qname="operNS:setFormulaDespachada" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" soapAction="" >
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="isFormulaPrepesada" qname="operNS:isFormulaPrepesada" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:isFormulaPrepesadaReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="saveBatchsRegistroProduccion" qname="operNS:saveBatchsRegistroProduccion" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:saveBatchsRegistroProduccionReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idRegistroProduccion" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:pesoObtenido" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:addressMemory" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="guardarRegistroProduccion" qname="operNS:guardarRegistroProduccion" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:guardarRegistroProduccionReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nombreFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:basculaAsignada" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:mp" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:descripcion" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:especificacionPeso" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:toleranciaMinima" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:toleranciaMaxima" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:sumatoriaBatchsPesosObtenidos" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:turno" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:totalBatchProcesados" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getEspecificacionIngrediente" qname="operNS:getEspecificacionIngrediente" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getEspecificacionIngredienteReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:double" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ingrediente" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idFormula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getTotalIngredientesFormula" qname="operNS:getTotalIngredientesFormula" xmlns:operNS="http://skeleton.ws.iacna.cplsys.com" returnQName="retNS:getTotalIngredientesFormulaReturn" xmlns:retNS="http://skeleton.ws.iacna.cplsys.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:formula" xmlns:pns="http://skeleton.ws.iacna.cplsys.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="formulaRegistradaEnPLC isFormulaDespachada getToleranciaMinima getNombreFormula setBatchsCompleteBascula getBasculaNombre getMpIngrediente getUltimoRegistroBacthProduccion getTotalIngredientesPorBascula guardarRegistroProduccion updateSumatoriaBatchPesoObtenido getBasculaIngrediente getSumatoriaBatchPesoObtenido setDescripcionBascula setModoManualBascula getNombreIngrediente getTotalBachtProcesados isIngredienteAsignadoAPrepesado deshabilitarBascula getTurnoFormula updateTotalBatchProcesados getBatchsCompleteBascula getToleranciaMaxima getBatchsFormula saveBatchsRegistroProduccion isBasculaModoManual habilitarBascula getEspecificacionIngrediente getDescripcionBascula setFormulaDespachada getSavedBatchsRegistroProduccion isBasculaHabilitada isFormulaCancelada getIdRegistroProduccion updateBatch verificarFormulaCargadaEnPLC isFormulaPrepesada getIdFormula isBasculaPrepesado getTotalIngredientesFormula"/>
+
+  </service>
+</deployment>

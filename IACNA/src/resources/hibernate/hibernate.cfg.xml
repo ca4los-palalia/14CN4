@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+<session-factory>
+	<property name="hibernate.connection.driver_class">
+		org.postgresql.Driver
+	</property>
+	<property name="hibernate.connection.url">		
+		jdbc:postgresql://localhost/IACNA
+	</property>
+	<property name="hibernate.connection.username">postgres</property>
+	<property name="hibernate.connection.password">123</property>
+	<property name="hibernate.show_sql">true</property>
+	<property name="hibernate.dialect">
+		org.hibernate.dialect.PostgreSQLDialect
+	</property>
+	<property name="hibernate.hbm2ddl.auto">update</property>
+	<property name="hibernate.connection.CharSet">utf8</property>
+	<property name="hibernate.connection.characterEncoding">
+		utf8
+	</property>
+	
+	<mapping class="com.cplsys.iacna.domain.AsignacionMaterialProducto" />
+	<mapping class="com.cplsys.iacna.domain.Bascula" />
+	<mapping class="com.cplsys.iacna.domain.Componente" />
+	<mapping class="com.cplsys.iacna.domain.Formula" />
+	<mapping class="com.cplsys.iacna.domain.Ingrediente" />
+	<mapping class="com.cplsys.iacna.domain.Material" />
+	<mapping class="com.cplsys.iacna.domain.Privilegios" />
+	<mapping class="com.cplsys.iacna.domain.Producto" />
+	<mapping class="com.cplsys.iacna.domain.Usuario" />
+	
+</session-factory>
+
+</hibernate-configuration>

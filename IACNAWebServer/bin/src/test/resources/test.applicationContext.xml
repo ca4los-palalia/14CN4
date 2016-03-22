@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	<context:component-scan  base-package="com.bit.cfdi.web" />
+	
+	<!-- Mongo db DataStore Configuration -->
+	<!--bean id="daMongoOptions" class="com.bi.morphia.BIMongoOptions">
+		<property name="host" value="digiall.mx" />
+		<property name="database" value="blueicon_cfdi" />
+		<property name="mapPackage" value="com.bit.cfdi.web.domain" />
+		<property name="connectionsPerHost" value="10000" />
+	</bean>
+	
+	<bean id="dataStore" class="com.bi.morphia.BIDatastoreFactory"
+		factory-method="createDataStore">
+		<constructor-arg name="daMongoOptions" ref="daMongoOptions"/>
+	</bean-->
+	<!-- END Mongo db DataStore Configuration -->
+	
+	<!-- Hibernate ORM Configuration -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="configLocation" 
+			value="classpath:test.hibernate.cfg.xml" />
+	</bean>
+	
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>		
+	
+	<tx:annotation-driven />
+	<!-- END Hibernate ORM Configuration -->
+	
+	<!-- Logs -->
+	<bean id="log4jInitialization"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
+		<property name="targetMethod" value="initLogging" />
+		<property name="arguments">
+			<list>
+				<value>classpath:test.log4j.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!-- End Logs -->
+	
+	<!-- Mail Sender -->
+   <bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />		
+		<property name="locations"
+			value="classpath:test.mailConfiguration.properties" />			
+	</bean>
+  
+   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host}" />
+		<property name="port" value="${mail.port}" />
+		<property name="username" value="${mail.username}" />
+		<property name="password" value="${mail.password}" />
+		<property name="defaultEncoding" value="${mail.encoding}" />
+	</bean>
+	<!-- END Mail Sender -->
+
+</beans>

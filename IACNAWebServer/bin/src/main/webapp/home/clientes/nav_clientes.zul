@@ -1,0 +1,11 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window zclass="withoutZClass">
+		<div>
+			<button onClick="@global-command('changeModule', key='CLIENTES')"
+				label="Clientes" zclass="btnMenu btnClientes"
+				sclass="btnM btnClientes" type="button"
+				image="/images/UI/navigationArea/clientes.png" />
+		</div>
+	</window>
+</zk>

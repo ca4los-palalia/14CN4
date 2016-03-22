@@ -1,0 +1,212 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="D:\Xone\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\IACNAWebServer\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="WSiacna" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="isIngredienteAsignadoAPrepesado" qname="ns1:isIngredienteAsignadoAPrepesado" returnQName="ns1:isIngredienteAsignadoAPrepesadoReturn" returnType="xsd:boolean" soapAction="" xmlns:ns1="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:ingrediente" type="xsd:int"/>
+   <ns2:parameter qname="ns1:idFormula" type="xsd:string"/>
+  </ns2:operation>
+  <ns1:operation name="getTotalIngredientesPorBascula" qname="ns2:getTotalIngredientesPorBascula" returnQName="ns2:getTotalIngredientesPorBasculaReturn" returnType="xsd:int" soapAction="" xmlns:ns2="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:idFormula" type="xsd:string"/>
+   <ns1:parameter qname="ns2:bascula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="updateSumatoriaBatchPesoObtenido" qname="ns3:updateSumatoriaBatchPesoObtenido" soapAction="" xmlns:ns3="http://skeleton.ws.iacna.cplsys.com">
+   <ns1:parameter qname="ns3:idFormula" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns3:bascula" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns3:descripcion" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns3:nuevoBatch" type="xsd:double" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getSavedBatchsRegistroProduccion" qname="ns4:getSavedBatchsRegistroProduccion" returnQName="ns4:getSavedBatchsRegistroProduccionReturn" returnType="xsd:int" soapAction="" xmlns:ns4="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:idRegistroProduccion" type="xsd:int"/>
+   <ns1:parameter qname="ns4:pesoObtenido" type="xsd:double"/>
+   <ns1:parameter qname="ns4:addressMemory" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getUltimoRegistroBacthProduccion" qname="ns5:getUltimoRegistroBacthProduccion" returnQName="ns5:getUltimoRegistroBacthProduccionReturn" returnType="xsd:int" soapAction="" xmlns:ns5="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="getIdFormula" qname="ns6:getIdFormula" returnQName="ns6:getIdFormulaReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="updateBatch" qname="ns7:updateBatch" soapAction="" xmlns:ns7="http://skeleton.ws.iacna.cplsys.com">
+   <ns1:parameter qname="ns7:batchActual" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns7:idFormula" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="setBatchsCompleteBascula" qname="ns8:setBatchsCompleteBascula" soapAction="" xmlns:ns8="http://skeleton.ws.iacna.cplsys.com">
+   <ns1:parameter qname="ns8:idBascula" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns8:batchs" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getBatchsCompleteBascula" qname="ns9:getBatchsCompleteBascula" returnQName="ns9:getBatchsCompleteBasculaReturn" returnType="xsd:int" soapAction="" xmlns:ns9="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns9:idBascula" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="getSumatoriaBatchPesoObtenido" qname="ns10:getSumatoriaBatchPesoObtenido" returnQName="ns10:getSumatoriaBatchPesoObtenidoReturn" returnType="xsd:double" soapAction="" xmlns:ns10="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns10:idFormula" type="xsd:string"/>
+   <ns1:parameter qname="ns10:bascula" type="xsd:string"/>
+   <ns1:parameter qname="ns10:descripcion" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="updateTotalBatchProcesados" qname="ns11:updateTotalBatchProcesados" soapAction="" xmlns:ns11="http://skeleton.ws.iacna.cplsys.com">
+   <ns1:parameter qname="ns11:idFormula" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns11:bascula" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns11:descripcion" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns11:nuevoBatch" type="xsd:double" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getIdRegistroProduccion" qname="ns12:getIdRegistroProduccion" returnQName="ns12:getIdRegistroProduccionReturn" returnType="xsd:int" soapAction="" xmlns:ns12="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns12:ingrediente" type="xsd:int"/>
+   <ns1:parameter qname="ns12:idFormula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getTotalBachtProcesados" qname="ns13:getTotalBachtProcesados" returnQName="ns13:getTotalBachtProcesadosReturn" returnType="xsd:double" soapAction="" xmlns:ns13="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns13:idFormula" type="xsd:string"/>
+   <ns1:parameter qname="ns13:bascula" type="xsd:string"/>
+   <ns1:parameter qname="ns13:descripcion" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="verificarFormulaCargadaEnPLC" qname="ns14:verificarFormulaCargadaEnPLC" returnQName="ns14:verificarFormulaCargadaEnPLCReturn" returnType="xsd:boolean" soapAction="" xmlns:ns14="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns14:formula" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="formulaRegistradaEnPLC" qname="ns15:formulaRegistradaEnPLC" soapAction="" xmlns:ns15="http://skeleton.ws.iacna.cplsys.com">
+   <ns1:parameter qname="ns15:formula" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="isBasculaModoManual" qname="ns16:isBasculaModoManual" returnQName="ns16:isBasculaModoManualReturn" returnType="xsd:boolean" soapAction="" xmlns:ns16="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns16:bascula" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="isBasculaPrepesado" qname="ns17:isBasculaPrepesado" returnQName="ns17:isBasculaPrepesadoReturn" returnType="xsd:boolean" soapAction="" xmlns:ns17="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns17:bascula" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="getDescripcionBascula" qname="ns18:getDescripcionBascula" returnQName="ns18:getDescripcionBasculaReturn" returnType="xsd:string" soapAction="" xmlns:ns18="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns18:bascula" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="isBasculaHabilitada" qname="ns19:isBasculaHabilitada" returnQName="ns19:isBasculaHabilitadaReturn" returnType="xsd:boolean" soapAction="" xmlns:ns19="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns19:bascula" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="getBasculaNombre" qname="ns20:getBasculaNombre" returnQName="ns20:getBasculaNombreReturn" returnType="xsd:string" soapAction="" xmlns:ns20="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns20:bascula" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="deshabilitarBascula" qname="ns21:deshabilitarBascula" soapAction="" xmlns:ns21="http://skeleton.ws.iacna.cplsys.com">
+   <ns1:parameter qname="ns21:bascula" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="habilitarBascula" qname="ns22:habilitarBascula" soapAction="" xmlns:ns22="http://skeleton.ws.iacna.cplsys.com">
+   <ns1:parameter qname="ns22:bascula" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="setDescripcionBascula" qname="ns23:setDescripcionBascula" soapAction="" xmlns:ns23="http://skeleton.ws.iacna.cplsys.com">
+   <ns1:parameter qname="ns23:bascula" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns23:descripcion" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getTurnoFormula" qname="ns24:getTurnoFormula" returnQName="ns24:getTurnoFormulaReturn" returnType="xsd:string" soapAction="" xmlns:ns24="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="isFormulaCancelada" qname="ns25:isFormulaCancelada" returnQName="ns25:isFormulaCanceladaReturn" returnType="xsd:boolean" soapAction="" xmlns:ns25="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns25:idFormula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getBatchsFormula" qname="ns26:getBatchsFormula" returnQName="ns26:getBatchsFormulaReturn" returnType="xsd:int" soapAction="" xmlns:ns26="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns26:idFormula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getNombreIngrediente" qname="ns27:getNombreIngrediente" returnQName="ns27:getNombreIngredienteReturn" returnType="xsd:string" soapAction="" xmlns:ns27="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns27:ingrediente" type="xsd:int"/>
+   <ns1:parameter qname="ns27:idFormula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getBasculaIngrediente" qname="ns28:getBasculaIngrediente" returnQName="ns28:getBasculaIngredienteReturn" returnType="xsd:int" soapAction="" xmlns:ns28="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns28:ingrediente" type="xsd:int"/>
+   <ns1:parameter qname="ns28:idFormula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getToleranciaMinima" qname="ns29:getToleranciaMinima" returnQName="ns29:getToleranciaMinimaReturn" returnType="xsd:double" soapAction="" xmlns:ns29="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns29:ingrediente" type="xsd:int"/>
+   <ns1:parameter qname="ns29:idFormula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getToleranciaMaxima" qname="ns30:getToleranciaMaxima" returnQName="ns30:getToleranciaMaximaReturn" returnType="xsd:double" soapAction="" xmlns:ns30="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns30:ingrediente" type="xsd:int"/>
+   <ns1:parameter qname="ns30:idFormula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getNombreFormula" qname="ns31:getNombreFormula" returnQName="ns31:getNombreFormulaReturn" returnType="xsd:string" soapAction="" xmlns:ns31="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns31:idFormula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="isFormulaDespachada" qname="ns32:isFormulaDespachada" returnQName="ns32:isFormulaDespachadaReturn" returnType="xsd:boolean" soapAction="" xmlns:ns32="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns32:idFormula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getMpIngrediente" qname="ns33:getMpIngrediente" returnQName="ns33:getMpIngredienteReturn" returnType="xsd:string" soapAction="" xmlns:ns33="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns33:ingrediente" type="xsd:int"/>
+   <ns1:parameter qname="ns33:idFormula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="setModoManualBascula" qname="ns34:setModoManualBascula" soapAction="" xmlns:ns34="http://skeleton.ws.iacna.cplsys.com">
+   <ns1:parameter qname="ns34:bascula" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="setFormulaDespachada" qname="ns35:setFormulaDespachada" soapAction="" xmlns:ns35="http://skeleton.ws.iacna.cplsys.com">
+   <ns1:parameter qname="ns35:idFormula" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="isFormulaPrepesada" qname="ns36:isFormulaPrepesada" returnQName="ns36:isFormulaPrepesadaReturn" returnType="xsd:boolean" soapAction="" xmlns:ns36="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns36:idFormula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="saveBatchsRegistroProduccion" qname="ns37:saveBatchsRegistroProduccion" returnQName="ns37:saveBatchsRegistroProduccionReturn" returnType="xsd:boolean" soapAction="" xmlns:ns37="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns37:idRegistroProduccion" type="xsd:int"/>
+   <ns1:parameter qname="ns37:pesoObtenido" type="xsd:double"/>
+   <ns1:parameter qname="ns37:addressMemory" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="guardarRegistroProduccion" qname="ns38:guardarRegistroProduccion" returnQName="ns38:guardarRegistroProduccionReturn" returnType="xsd:int" soapAction="" xmlns:ns38="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns38:nombreFormula" type="xsd:string"/>
+   <ns1:parameter qname="ns38:basculaAsignada" type="xsd:string"/>
+   <ns1:parameter qname="ns38:mp" type="xsd:string"/>
+   <ns1:parameter qname="ns38:descripcion" type="xsd:string"/>
+   <ns1:parameter qname="ns38:especificacionPeso" type="xsd:double"/>
+   <ns1:parameter qname="ns38:toleranciaMinima" type="xsd:double"/>
+   <ns1:parameter qname="ns38:toleranciaMaxima" type="xsd:double"/>
+   <ns1:parameter qname="ns38:sumatoriaBatchsPesosObtenidos" type="xsd:int"/>
+   <ns1:parameter qname="ns38:turno" type="xsd:string"/>
+   <ns1:parameter qname="ns38:totalBatchProcesados" type="xsd:double"/>
+   <ns1:parameter qname="ns38:idFormula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getEspecificacionIngrediente" qname="ns39:getEspecificacionIngrediente" returnQName="ns39:getEspecificacionIngredienteReturn" returnType="xsd:double" soapAction="" xmlns:ns39="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns39:ingrediente" type="xsd:int"/>
+   <ns1:parameter qname="ns39:idFormula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getTotalIngredientesFormula" qname="ns40:getTotalIngredientesFormula" returnQName="ns40:getTotalIngredientesFormulaReturn" returnType="xsd:int" soapAction="" xmlns:ns40="http://skeleton.ws.iacna.cplsys.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns40:formula" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="formulaRegistradaEnPLC isFormulaDespachada getToleranciaMinima getNombreFormula setBatchsCompleteBascula getBasculaNombre getMpIngrediente getUltimoRegistroBacthProduccion getTotalIngredientesPorBascula guardarRegistroProduccion updateSumatoriaBatchPesoObtenido getBasculaIngrediente getSumatoriaBatchPesoObtenido setDescripcionBascula setModoManualBascula getNombreIngrediente getTotalBachtProcesados isIngredienteAsignadoAPrepesado deshabilitarBascula getTurnoFormula updateTotalBatchProcesados getBatchsCompleteBascula getToleranciaMaxima getBatchsFormula saveBatchsRegistroProduccion isBasculaModoManual habilitarBascula getEspecificacionIngrediente getDescripcionBascula setFormulaDespachada getSavedBatchsRegistroProduccion isBasculaHabilitada isFormulaCancelada getIdRegistroProduccion updateBatch verificarFormulaCargadaEnPLC isFormulaPrepesada getIdFormula isBasculaPrepesado getTotalIngredientesFormula"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="WSiacna"/>
+  <ns1:parameter name="className" value="com.cplsys.iacna.ws.skeleton.WSiacna"/>
+  <ns1:parameter name="wsdlServicePort" value="WSiacna"/>
+  <ns1:parameter name="schemaQualified" value="http://skeleton.ws.iacna.cplsys.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://skeleton.ws.iacna.cplsys.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="WSiacnaService"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

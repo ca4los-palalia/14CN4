@@ -1,0 +1,424 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+
+<window zclass="divContentCenterEast">
+	<div
+		sclass="contentPage pagConfigurarCuentaNegocio lineaVerticalGris"
+		zclass="divCenter">
+		<div zclass="seccionTitulo"
+			style="padding-bottom:20px !important; position:relative;">
+			<image src="/images/UI/workspaceArea/lapizEditar.png"
+				zclass="imgTitulo" />
+			<label value="Configurar tu Cuenta de Negocio"
+				zclass="textoTitulo" />
+			<button image="/images/UI/workspaceArea/bote.png"
+				sclass="btnM"
+				style="position:absolute; top:0; right:5px; cursor: help;"
+				tooltip="eliminar" type="button" />
+			<popup id="eliminar" zclass="popUp">
+				<html>
+
+					
+					<![CDATA[Elimina de forma permanente los datos del
+					sistema.]]>
+					
+					
+					</html>
+			</popup>
+		</div>
+		<label value="Edita la información de tu Negocio y Sucursal."
+			sclass="txtInformativo" />
+		<div zclass="lineSeparator" />
+
+		<!-- SECCIÓN NOMBRE NEGOCIO -->
+		<groupbox open="true">
+			<caption label="Nombre del Negocio" zclass="txtSubTitulo">
+				<div zclass="imgFlecha" />
+			</caption>
+			<textbox id="txtNombreNegocio" type="text" value=""
+				zclass="txtNombreNegocio" sclass="txtCampo cajaTexto" />
+			<button label="Guardar" sclass="btnM btnGray btnFloatR" />
+		</groupbox>
+		<div zclass="lineSeparator" />
+
+		<!-- SECCIÓN CSD PARA FACTURAR ELECTRÓNICAMENTE -->
+		<groupbox open="true">
+			<caption
+				label="Ingresa tu CSD para facturar electrónicamente"
+				zclass="txtSubTitulo">
+				<div zclass="imgFlecha" />
+			</caption>
+			<div style="width:380px !important;"
+				sclass="txtInformativo">
+				Este Sistema lo puedes usar para fines fiscales por lo
+				que es necesario configurarlo con un CSD (Certificado de
+				Sello Digital).
+			</div>
+			<hlayout sclass="hlyUploadCSD">
+				<vlayout>
+					<textbox id="txtFileCer" sclass="cajaTexto" value=""
+						type="text" zclass="fileCer" />
+					<textbox id="txtFileKey" sclass="cajaTexto"
+						type="text" value="" zclass="fileKey" />
+					<textbox id="pswPassCer" sclass="cajaTexto"
+						type="text" value="" zclass="filePass" />
+				</vlayout>
+				<vlayout>
+					<div zclass="fUpload">
+						<fileupload label="Examinar" sclass="btnFUp" />
+					</div>
+					<div zclass="fUpload">
+						<fileupload label="Examinar" sclass="btnFUp" />
+					</div>
+				</vlayout>
+			</hlayout>
+			<button label="Guardar" sclass="btnM btnGray btnFloatR" />
+		</groupbox>
+		<div zclass="lineSeparator" />
+
+		<!-- SECCIÓN DATOS FISCALES -->
+		<groupbox open="true">
+			<caption label="Escribe tus datos fiscales (Matriz)"
+				zclass="txtSubTitulo">
+				<div zclass="imgFlecha" />
+			</caption>
+			<div style="margin-bottom:15px;">
+				<textbox id="txtRFC" sclass="txtBordeGris cajaTexto"
+					style="border-radius:5px; width:100px; height:20px;background-repeat:repeat;"
+					type="text" value="" zclass="txtRFC" />
+				<textbox id="txtRazonSocial"
+					sclass="txtBordeGris cajaTexto"
+					style="border-radius:5px; width:330px;height:20px; margin-left:50px; background-repeat:repeat;"
+					type="text" value="" zclass="txtRazonSocial" />
+			</div>
+			<!-- Datos dirección -->
+			<hlayout style="margin-top:15px;">
+				<vlayout>
+					<textbox sclass="txtCampo cajaTexto" type="text"
+						value="" zclass="txtCalle" />
+					<div>
+						<textbox sclass="cajaTexto" style="width:45%;"
+							type="text" value="" zclass="txtNoExterior" />
+						<textbox sclass="cajaTexto"
+							style="width:44%; margin-left:16px;" type="text" value=""
+							zclass="txtNoInterior" />
+					</div>
+					<textbox sclass="txtCampo cajaTexto" type="text"
+						value="" zclass="txtColonia" />
+					<textbox sclass="txtCampo cajaTexto" type="text"
+						value="" zclass="txtCP" />
+					<textbox sclass="txtCampo cajaTexto" type="text"
+						value="" zclass="txtReferencia" />
+				</vlayout>
+				<vlayout sclass="vlyListaCmbx">
+					<combobox sclass="cmbPais" value="" />
+					<combobox sclass="cmbEstado" value="" />
+					<combobox sclass="cmbCiudad" value="" />
+					<combobox sclass="cmbMunicipio" value="" />
+					<textbox sclass="cajaTexto" type="text" value=""
+						width="140px" zclass="txtLocalidad" />
+				</vlayout>
+			</hlayout>
+			<!-- SeccionTelefono -->
+			<div zclass="contentTel">
+				<vlayout sclass="vlyTelefonos">
+					<hlayout sclass="filaTelefono">
+						<combobox sclass="cmbTelefono">
+							<comboitem
+								image="/images/UI/workspaceArea/casa.png" sclass="imgOpcion">
+							</comboitem>
+							<comboitem
+								image="/images/UI/workspaceArea/cel.png" sclass="imgOpcion">
+							</comboitem>
+							<comboitem
+								image="/images/UI/workspaceArea/oficina.png"
+								sclass="imgOpcion">
+							</comboitem>
+						</combobox>
+						<textbox sclass="cajaTexto" zclass="txtNumTel" />
+						<textbox sclass="cajaTexto" zclass="txtExtTel" />
+						<button sclass="btnM"
+							image="/images/UI/workspaceArea/delete.png" />
+					</hlayout>
+				</vlayout>
+				<button label="Agregar Teléfono."
+					sclass="btnM btnAgregarDatos"
+					image="/images/UI/navigationArea/reportes-icon.png" />
+			</div>
+			<button label="Guardar" sclass="btnM btnGray btnFloatR" />
+		</groupbox>
+		<div zclass="lineSeparator" />
+		<!-- SECCIÓN IMAGEN DEL NEGOCIO -->
+		<groupbox open="true">
+			<caption label="Imagen del negocio" zclass="txtSubTitulo">
+				<div zclass="imgFlecha" />
+			</caption>
+			<vlayout sclass="vlyImagenNegocio">
+				<image src="/images/UI/workspaceArea/user.png" />
+				<label value="Tamaño en pixeles preferido 170 x 85"
+					sclass="txtGrayIndication" />
+				<label value="Tamaño máximo 512 Kb"
+					sclass="txtGrayIndication" />
+				<div zclass="fUpload" style="margin-left:220px;">
+					<fileupload label="Imagen del negocio"
+						sclass="btnFUp" />
+				</div>
+			</vlayout>
+			<button label="Guardar" sclass="btnM btnGray btnFloatR" />
+		</groupbox>
+		<div zclass="lineSeparator" />
+
+		<!-- SECCIÓN TIPO DE FACTURACIÓN -->
+		<groupbox open="true">
+			<caption label="Tipo de facturación"
+				zclass="txtSubTitulo">
+				<div zclass="imgFlecha" />
+			</caption>
+			<combobox sclass="cmbTipoFact" value="" width="160px" />
+			<button label="Guardar" sclass="btnM btnGray btnFloatR" />
+		</groupbox>
+		<div zclass="lineSeparator" />
+
+		<!-- SECCIÓN GIRO DEL NEGOCIO -->
+		<groupbox open="true">
+			<caption label="Giro del Negocio" zclass="txtSubTitulo">
+				<div zclass="imgFlecha" />
+			</caption>
+			<textbox rows="5" sclass="txtMultilinea txtBordeGris" />
+			<button label="Seleccionar Giros"
+				sclass="btnM btnGray btnFloatR" />
+		</groupbox>
+
+		<!-- SECCIÓN RÉGIMEN // Oculta-->
+		<groupbox open="true" visible="false">
+			<caption label="Régimen" zclass="txtSubTitulo">
+				<div zclass="imgFlecha" />
+			</caption>
+			<textbox rows="5" sclass="txtMultilinea txtBordeGris" />
+			<button label="Seleccionar Régimen"
+				sclass="btnM btnGray btnFloatR" />
+		</groupbox>
+		<div zclass="lineSeparator" />
+
+		<!-- SECCIÓN SUCURSAL -->
+		<groupbox open="true">
+			<caption label="Sucursal" zclass="txtSubTitulo">
+				<div zclass="imgFlecha" />
+			</caption>
+			<div>
+				<textbox type="text" value="" zclass="txtNombreSucursal"
+					sclass="txtCampo cajaTexto" />
+				<combobox style="margin-left: 50px;"
+					sclass="cmbSucursal" value="" visible="false" width="140px" />
+			</div>
+			<checkbox
+				label="Copiar información del negocio a la sucursar"
+				style="display:block; margin-top:15px; margin-bottom:5px;"
+				zclass="chk" />
+			<!-- Datos dirección -->
+			<hlayout style="margin-top:15px;">
+				<vlayout>
+					<textbox sclass="txtCampo cajaTexto" type="text"
+						value="" zclass="txtCalle" />
+					<div>
+						<textbox sclass="cajaTexto" style="width:45%;"
+							type="text" value="" zclass="txtNoExterior" />
+						<textbox sclass="cajaTexto"
+							style="width:44%; margin-left:16px;" type="text" value=""
+							zclass="txtNoInterior" />
+					</div>
+					<textbox sclass="txtCampo cajaTexto" type="text"
+						value="" zclass="txtColonia" />
+					<textbox sclass="txtCampo cajaTexto" type="text"
+						value="" zclass="txtCP" />
+					<textbox sclass="txtCampo cajaTexto" type="text"
+						value="" zclass="txtReferencia" />
+				</vlayout>
+				<vlayout sclass="vlyListaCmbx">
+					<combobox sclass="cmbPais" value="" />
+					<combobox sclass="cmbEstado" value="" />
+					<combobox sclass="cmbCiudad" value="" />
+					<combobox sclass="cmbMunicipio" value="" />
+					<textbox sclass="cajaTexto" type="text" value=""
+						width="140px" zclass="txtLocalidad" />
+				</vlayout>
+			</hlayout>
+			<button id="btnGuardarInfoSucursal" label="Guardar"
+				sclass="btnM btnGray btnFloatR" />
+			<div zclass="lineSeparator" />
+			<div
+				style="text-align: center; width: 90% !important; margin:0 auto;"
+				sclass="txtInformativo">
+				Se debe de seleccionar un tipo de facturación reportada
+				al SAT para agregar series además de tener un RFC válido
+				dado de alta en el área de Datos Fiscales.
+			</div>
+		</groupbox>
+		<div zclass="lineSeparator" />
+
+		<!-- SECCIÓN ADMINISTRA USUARIOS -->
+		<groupbox open="true">
+			<caption label="Administra tus usuarios"
+				zclass="txtSubTitulo">
+				<div zclass="imgFlecha" />
+			</caption>
+			<button id="btnAgregarUsuario" label="+ Agregar"
+				sclass="btnM btnGray btnFloatR" />
+			<div>
+				<div zclass="contentGvUsuarios" sclass="bordesGv">
+					<grid
+						emptyMessage="No existen elementos que mostrar."
+						sizedByContent="true" vflex="1" hflex="1">
+						<columns sizable="true">
+							<column hflex="1" tooltiptext="Nombre">
+								Nombre
+							</column>
+							<column hflex="2" tooltiptext="Email">
+								Email
+							</column>
+							<column hflex="3" tooltiptext="Permisos">
+								Permisos
+							</column>
+						</columns>
+						<rows>
+							<row>
+								<label value="Nombre 1" />
+								<label value="Email 1" />
+								<div>iconos</div>
+							</row>
+						</rows>
+					</grid>
+				</div>
+				<div
+					style="padding-left:20px; float:left; margin-bottom:20px;">
+					<div sclass="parAcotacion">
+						<image src="/images/UI/personaliza.png" />
+						<label value="Personalizaciones"
+							sclass="txtInformativo" />
+					</div>
+					<div sclass="parAcotacion">
+						<image src="/images/UI/backup_icon.png" />
+						<label value="Respaldo de información"
+							sclass="txtInformativo" />
+					</div>
+					<div sclass="parAcotacion">
+						<image
+							src="/images/UI/navigationArea/Facturas.png" />
+						<label value="Factura" sclass="txtInformativo" />
+					</div>
+					<div sclass="parAcotacion">
+						<image
+							src="/images/UI/navigationArea/reportes-icon.png" />
+						<label value="Reportes" sclass="txtInformativo" />
+					</div>
+					<div sclass="parAcotacion">
+						<image
+							src="/images/UI/navigationArea/clientes.png" />
+						<label value="Clientes" sclass="txtInformativo" />
+					</div>
+					<div sclass="parAcotacion">
+						<image
+							src="/images/UI/navigationArea/producto.png" />
+						<label value="Producto / Servicio"
+							sclass="txtInformativo" />
+					</div>
+				</div>
+			</div>
+			<div visible="true" zclass="contentDatosCliente" >
+				<hlayout
+					style="float: none; clear: both; overflow:hidden !important;">
+					<vlayout>
+						<textbox id="txtEmailUsuario"
+							sclass="txtCampo cajaTexto" type="text" value=""
+							zclass="txtEmail" />
+						<textbox id="txtNombreUsuario"
+							sclass="txtCampo cajaTexto" type="text" value=""
+							zclass="txtNombre" />
+						<textbox id="txtApPatUsuario"
+							sclass="txtCampo cajaTexto" type="text" value=""
+							zclass="txtApPaterno" />
+						<textbox id="txtApMatUsuario"
+							sclass="txtCampo cajaTexto" type="text" value=""
+							zclass="txtApMaterno" />
+						<textbox id="passUsuario"
+							sclass="txtCampo cajaTexto" type="password" value=""
+							zclass="txtPassword" />
+						<textbox id="passUsuarioRep"
+							sclass="txtCampo cajaTexto" type="password" value=""
+							zclass="txtRepPassword" />
+					</vlayout>
+					<vlayout style="padding-left:50px;">
+						<label style="margin-left:50px;"
+							sclass="txtInformativo" value="Permisos" />
+													
+													
+						<checkbox id=""
+							image="/images/UI/navigationArea/Facturas.png" label="Factura"
+							sclass="txtInformativo" />																			
+						<checkbox id=""
+							image="/images/UI/navigationArea/Facturas.png" label="Nota de credito"
+							sclass="txtInformativo" />						
+						<checkbox id=""
+							image="/images/UI/navigationArea/Facturas.png" label="Recibo"
+							sclass="txtInformativo" />						
+						<checkbox id=""
+							image="/images/UI/navigationArea/Facturas.png" label="Recibo Donataria"
+							sclass="txtInformativo" />
+						<checkbox id=""
+							image="/images/UI/navigationArea/Facturas.png" label="Carta Porte"
+							sclass="txtInformativo" />
+						<checkbox id=""
+							image="/images/UI/navigationArea/Facturas.png" label="Configuración"
+							sclass="txtInformativo" />												
+						<checkbox id=""
+							image="/images/UI/navigationArea/reportes-icon.png"
+							label="Reportes" sclass="txtInformativo" />
+						<checkbox id="chkPermiso5"
+							image="/images/UI/navigationArea/clientes.png" label="Clientes"
+							sclass="txtInformativo" />
+						<checkbox id=""
+							image="/images/UI/navigationArea/producto.png"
+							label="Producto / Servicio" sclass="txtInformativo" />
+													
+					</vlayout>
+				</hlayout>
+				<!-- SeccionTelefono -->
+				<div zclass="contentTel">
+					<vlayout sclass="vlyTelefonos">
+						<hlayout sclass="filaTelefono">
+							<combobox sclass="cmbTelefono">
+								<comboitem
+									image="/images/UI/workspaceArea/casa.png" sclass="imgOpcion">
+								</comboitem>
+								<comboitem
+									image="/images/UI/workspaceArea/cel.png" sclass="imgOpcion">
+								</comboitem>
+								<comboitem
+									image="/images/UI/workspaceArea/oficina.png"
+									sclass="imgOpcion">
+								</comboitem>
+							</combobox>
+							<textbox sclass="cajaTexto"
+								zclass="txtNumTel" />
+							<textbox sclass="cajaTexto"
+								zclass="txtExtTel" />
+							<button sclass="btnM"
+								image="/images/UI/workspaceArea/delete.png" />
+						</hlayout>
+					</vlayout>
+					<button label="Agregar Teléfono."
+						sclass="btnM btnAgregarDatos"
+						image="/images/UI/navigationArea/reportes-icon.png" />
+				</div>
+
+
+				<div style="btnFloatR">
+					<button id="btnCancelarUsuario" label="Cancelar"
+						sclass="btnM btnGray btnFloatR" />
+					<button id="btnGuardarUsuario" label="Guardar"
+						sclass="btnM btnGray btnFloatR" />
+				</div>
+			</div>
+		</groupbox>
+		<div zclass="lineSeparator" />
+	</div>
+</window>

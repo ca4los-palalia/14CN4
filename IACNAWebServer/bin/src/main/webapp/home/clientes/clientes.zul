@@ -1,0 +1,166 @@
+<?page title="Clientes" contentType="text/html;charset=UTF-8"?>
+
+<window 
+	sclass="contentPageClientes" 
+	zclass="divContentCenterEast"
+	apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('clivm') @init('com.bit.cfdi.web.vm.clientes.ClientesViewModel')">		
+		<div sclass="contentPage lineaVerticalGris" 
+			zclass="divCenter">
+			<div zclass="seccionTitulo">
+				<image src="/images/UI/navigationArea/reportes-icon.png"
+					zclass="imgTitulo" />
+				<label value="Clientes" zclass="textoTitulo" />
+			</div>	
+		
+			<div zclass="seccionBuscar">
+				<hlayout style="position:absolute; ">
+					<textbox sclass="cajaTexto" zclass="txtBuscar" />
+					<button image="/images/UI/icono-buscar.png" sclass="btnImagen" tooltiptext="Buscar..." />											
+				</hlayout>
+				<hlayout style="position:absolute; right:20px;">
+					<label value="Descargar" sclass="txtInformativo" />
+					<button label="EXCEL" sclass="btnExcel" style="" />
+				</hlayout>
+			</div>
+			<div style="position:relative; margin-top:80px; ">
+				<div sclass="bordesGv" zclass="contentGvClientes">
+					<grid>
+						<columns sclass="contentColumnsGv">
+							<column tooltiptext="RFC" >RFC</column>
+							<column tooltiptext="Razón Social">Razón Social</column>
+							<column tooltiptext="Dirección de Envío">Dirección de Envío</column>
+							<column tooltiptext="Nombre">Nombre</column>
+							<column tooltiptext="Emails">Emails</column>
+							<column tooltiptext="Teléfonos">Teléfonos</column>
+							<column tooltiptext="Dirección Fiscal">Direcciónn Fiscal</column>
+							<column tooltiptext="Teléfonos">Teléfonos</column>
+						</columns>
+					</grid>
+				</div>
+				<div sclass="barraPieGv">
+					<label value="0 Clientes" />
+				</div>
+			</div>
+			
+			<div zclass="lineSeparator" />						
+		
+			<!-- SECCIÓN: AGREGAR NUEVO CLIENTE -->			
+			<div>
+				<div sclass="subtituloConImagen">
+					<image src="/images/UI/datosDelReceptor.png" sclass="imgSubtitulo" />
+					<label sclass="txtSubTitulo txtImg" value="Agregar Nuevo Cliente"  />
+				</div>					
+				<!-- seccionDatosFiscales -->
+				<div zclass="seccionDatosFiscales">
+					<label zclass="txtSubtitulo2" value="Datos Fiscales" />
+					<textbox sclass="txtBordeGris cajaTexto" style="border-radius:5px; width:120px; height:20px;background-repeat:repeat;" type="text"   value="" zclass="txtRFC"/>
+					<textbox sclass="txtBordeGris cajaTexto" style="border-radius:5px; width:330px;height:20px; margin-left:50px; background-repeat:repeat;" type="text"  value="" zclass="txtRazonSocial"/>					
+					<hlayout style="margin-top:15px;">
+						<vlayout>
+							<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtCalle"/>
+							<div>
+								<textbox sclass="cajaTexto" style="width:45%;" type="text" value="" zclass="txtNoExterior"  />
+								<textbox sclass="cajaTexto" style="width:44%; margin-left:16px;" type="text" value="" zclass="txtNoInterior" />
+							</div>
+							<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtColonia"/>
+							<textbox sclass="txtCampo cajaTexto" type="text" value="" zclass="txtCP"/>
+							<textbox sclass="txtCampo cajaTexto"  type="text" value="" zclass="txtReferencia" />																			
+						</vlayout>
+						<vlayout sclass="vlyListaCmbx">
+							<combobox sclass="cmbPais" value="" />
+							<combobox sclass="cmbEstado" value=""/>
+							<combobox sclass="cmbCiudad" value=""/>
+							<combobox sclass="cmbMunicipio" value=""/>
+							<textbox  sclass="cajaTexto" type="text" value="" width="140px" zclass="txtLocalidad" />											
+						</vlayout>
+					</hlayout>						
+				</div>
+				<!-- seccionDatosPersonales -->
+				<div zclass="seccionDatosPersonales">
+					<label zclass="txtSubtitulo2" value="Datos Personales" />
+					<textbox  sclass="cajaTexto txtCampo" type="text" value="" zclass="txtNombre"  />
+					<textbox  sclass="cajaTexto txtCampo"  type="text" value="" zclass="txtApPaterno" />
+					<textbox  sclass="cajaTexto txtCampo" type="text" value="" zclass="txtApMaterno" />	
+				</div>
+				<!-- seccionTelefonos -->					
+				<div zclass="contentTel">
+					<vlayout sclass="vlyTelefonos">					
+						<hlayout sclass="filaTelefono">
+							<combobox sclass="cmbTelefono">
+								<comboitem image="/images/UI/workspaceArea/casa.png" sclass="imgOpcion"></comboitem>
+								<comboitem image="/images/UI/workspaceArea/cel.png" sclass="imgOpcion"></comboitem>
+								<comboitem image="/images/UI/workspaceArea/oficina.png" sclass="imgOpcion"></comboitem>
+							</combobox>
+							<textbox sclass="cajaTexto" zclass="txtNumTel" />
+							<textbox sclass="cajaTexto" zclass="txtExtTel" />
+							<button sclass="btnM" image="/images/UI/workspaceArea/delete.png" />
+						</hlayout>				
+					</vlayout>
+					<button label="Agregar Teléfono." sclass="btnM btnAgregarDatos" image="/images/UI/navigationArea/reportes-icon.png" />
+				</div>
+				<!-- seccionCorreo -->	
+				<div zclass="contentCorreo">
+					<vlayout sclass="vlyCorreosPerfil">
+						<hlayout>
+							<textbox sclass="cajaTexto txtCampo" zclass="txtEmailCompany" />
+							<button image="/images/UI/workspaceArea/delete.png" sclass="btnM" />
+						</hlayout>
+					</vlayout>
+					<button id="btnAgregarCorreo" label="Agregar Correo." sclass="btnM btnAgregarDatos"
+						image="/images/UI/navigationArea/reportes-icon.png" />
+				</div>			
+				<!-- Direccion de Envio -->
+				<div zclass="seccionDireccionEnvio">
+					<label zclass="txtSubtitulo2" value="Dirección de Envío" />
+					<hlayout>
+						<checkbox label="Agregar Dirección de Envío" sclass="txtInformativo" />
+						<checkbox label="Copiar Datos desde Dirección Físcal" sclass="txtInformativo" />
+					</hlayout>
+				</div>			
+				<hlayout style="margin-top:15px;">
+					<vlayout>
+						<textbox sclass="txtCampo cajaTexto" type="text"
+							value="" zclass="txtCalle" />
+						<div>
+							<textbox sclass="cajaTexto"
+								style="width:45%;" type="text" value="" zclass="txtNoExterior" />
+							<textbox sclass="cajaTexto"
+								style="width:44%; margin-left:16px;" type="text" value=""
+								zclass="txtNoInterior" />
+						</div>
+						<textbox sclass="txtCampo cajaTexto" type="text"
+							value="" zclass="txtColonia" />
+						<textbox sclass="txtCampo cajaTexto" type="text"
+							value="" zclass="txtCP" />
+						<textbox sclass="txtCampo cajaTexto" type="text"
+							value="" zclass="txtReferencia" />
+					</vlayout>
+					<vlayout sclass="vlyListaCmbx">
+						<combobox sclass="cmbPais" value="" />
+						<combobox sclass="cmbEstado" value="" />
+						<combobox sclass="cmbCiudad" value="" />
+						<combobox sclass="cmbMunicipio" value="" />
+						<textbox sclass="cajaTexto" type="text" value=""
+							width="140px" zclass="txtLocalidad" />
+					</vlayout>
+				</hlayout>				
+				<hlayout sclass="hlyBtnsGuardarCancelar">
+					<button label="Cancelar" sclass="btn btnCancelar" />
+					<button label="Guardar"  sclass="btn btnGuardar" />
+				</hlayout>				
+			</div>	<!-- Fin seccion agragar -->											
+		</div>
+		<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->		
+		<div zclass="divEast">
+			<div zclass="pagecClientes">
+				<label value="Opciones" zclass="txtGraySmall" />
+				<div sclass="lineGray" style="margin-top:5px;"
+						zclass="lineSeparator" />		
+				<button label="Agregar un Nuevo Cliente" sclass="btnGray" />
+				<button label="Importar Desde Archivo" sclass="btnGray" />
+				<button label="Exportar a un Archivo" sclass="btnGray" />
+			</div>											
+		</div>
+		<!--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&-->
+</window>

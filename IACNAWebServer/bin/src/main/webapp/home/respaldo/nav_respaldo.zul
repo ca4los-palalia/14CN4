@@ -1,0 +1,11 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window zclass="withoutZClass">
+		<div>
+			<button href="/home/respaldo_informacion.zul"
+				label="Respaldo" zclass="btnMenu" sclass="btnM btnProdServ"
+				type="button" image="/images/UI/backup_icon.png"
+				onClick="@global-command('changeModule', key='RESPALDO')" />
+		</div>
+	</window>
+</zk>

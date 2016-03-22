@@ -1,0 +1,10 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window zclass="withoutZClass">
+		<div>
+			<button onClick="@global-command('changeModule', key='REPORTES')"
+				label="Reportes" zclass="btnMenu" sclass="btnM" type="button"
+				image="/images/UI/navigationArea/reportes-icon.png" />
+		</div>
+	</window>
+</zk>

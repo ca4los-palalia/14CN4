@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="build project" default="reconstruct" basedir=".">
+    
+	<target name="clean-all">
+    	<echo>Deleting logs</echo>
+        <delete dir="logs" />
+    	
+    	<echo>Deleting DB</echo>
+    	<delete dir="cfdidb" />
+    	
+    	<echo>Deleting facturas</echo>
+    	<delete dir="facturas" />
+    	
+    	<echo>Deleting FilesCertificado</echo>
+    	<delete dir="FilesCertificado" />
+    	
+    	<echo>Deleting Personalizaciones</echo>
+    	<delete dir="Personalizaciones" />
+		
+		<echo>Deleting temp</echo>
+		<delete dir="temp" />
+		
+		<echo>Deleting Logo</echo>
+        <delete dir="Logo" />
+        
+        <echo>Deleting Cancelar</echo>
+        <delete dir="Cancelar" />
+        
+        <echo>Deleting cbb.png</echo>
+        <delete file="cbb.png" />
+    	
+    	<echo>Deleting derby.log</echo>
+    	<delete>
+             <fileset dir=".">
+                 <include name="derby.log"/>
+             </fileset>
+        </delete> 
+    	
+    	<echo>Deleting created .properties</echo>
+    	<delete>
+    	     <fileset dir=".">
+    	         <include name="*_cfdi.properties"/>
+    	     </fileset>
+    	</delete>
+    </target>
+    	
+	<target name="reconstruct" depends="clean-all">
+        <ant antfile="build.xml" target="run-maven" inheritRefs="true"/>
+    </target>
+	
+</project>

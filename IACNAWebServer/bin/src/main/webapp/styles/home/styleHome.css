@@ -1,0 +1,101 @@
+@CHARSET "ISO-8859-1";
+
+body
+{
+	font-family: sans-serif;	
+}
+
+/*---------------------------------------------------------------*/
+	.z-borderlayout
+	{		
+	}
+		.z-east, .z-west, .z-south, .z-north 
+		{	    	
+		}
+	.contentPageLogin .headerHome, .contentPageLogin .centerHome, .contentPageLogin .footHome
+	{
+		border-style:none;			
+		background-color: transparent;
+		width: 980px !important;		
+	} 
+/*---------------------------------------------------------------*/
+
+.contentPageLogin
+{	
+	background-color:#F8931D;
+	background-image:url(../../images/fondo-naranja.jpg);
+	background-position:bottom;
+	background-repeat:repeat-x;		
+		
+	margin:0 auto;
+	height:100%;
+	min-height: 600px;
+	max-height: 800px;
+}	
+	.headerHome
+	{
+		background-color:#6B645D !important;			
+	}		
+	.contentPageLogin .centerHome
+	{			
+		background-color:#F8931D;
+		background-image:url(../../images/fondo-naranja.jpg);
+		background-position:bottom;
+		background-repeat:repeat-x;								
+	}	
+		.centerHome > div
+		{
+			background-color:#F8931D;
+			background-image:url(../../images/fondo-naranja.jpg);
+			background-position:bottom;
+			background-repeat:repeat-x;
+			float:left;
+			clear: none;	
+			height:400px;		
+		}	
+		.regionLeft, .regionRigth
+		{
+			background-image:url(../../images/fondo-naranja.jpg);
+			float: left;
+			min-height:500px;
+		}
+		.regionLeft
+		{
+									
+			margin-left:10px;
+			position:relative;
+			width: 520px;		
+		}
+			.imgLogo
+			{
+				position:absolute;
+				top:170px;
+			 	right:60px;				
+			}		
+		.regionRigth
+		{
+			/*background-color: yellow;*/
+			color:white;
+			width:440px; 			
+		}
+	.footHome
+	{
+		background-image:url(../../images/fondo-naranja.jpg);
+		background-position:bottom;		
+	}
+		/*NOTA: contenedor de elementos del pie*/
+		.footHome .z-south-body		
+		{					
+			height:100%;
+			/*background-color: yellow;*/		
+		}				
+		.lineFooter
+		{
+			border-top-style: solid;
+			border-top-width: 1px;
+			border-top-color: white;
+			
+			height: 2px;
+			margin:0 auto;					
+			width: 95%;			
+		}

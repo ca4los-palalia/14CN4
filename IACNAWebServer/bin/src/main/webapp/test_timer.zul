@@ -1,0 +1,32 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk 
+	xmlns:c="client">
+	<zscript>
+		long currentDate = new Date().getTime();
+	</zscript>
+	<script><![CDATA[ 
+		function startTime(time) { 
+			var today=new Date(time); 
+			var h=today.getHours(); 
+			var m=today.getMinutes(); 
+			var s=today.getSeconds(); // add a zero in front of numbers<10
+			m=checkTime(m); 
+			s=checkTime(s);
+			zk.Widget.$(jq("$timeLabel")).setValue(h+":"+m+":"+s);
+			t=setTimeout(function(){
+								startTime(time+1000)
+							},1000); 
+		}
+
+		function checkTime(i) { 
+			if (i<10) { 
+				i="0" + i; 
+			} 
+			return i; 
+		} 
+	]]></script>
+	<window title="new page title" border="normal">
+		<label id="timeLabel" value="this will change"/>
+		<button label="change it" c:onClick="startTime(${currentDate})"/>
+	</window>
+</zk>

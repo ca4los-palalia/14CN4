@@ -1,0 +1,6 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<div self="@{define(navigationArea) }">
+	<include src="/navigationArea/navegacion.zul" zclass="includeNavigation" />
+</div>
+</zk>

@@ -1,0 +1,23 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="new page title" border="normal"
+		apply="org.zkoss.bind.BindComposer" 
+		viewModel="@id('vm') @init('com.bit.cfdi.web.vm.TestTabsViewModel')">
+		<div>
+			<textbox 
+				value="@bind(vm.tabKey)" 
+				instant="true"/>
+			<button 
+				label="AddTab" 
+				onClick="@command('changeSelectedTab')" />
+		</div>
+		<div>
+			<tabbox id="tabbox" selectedIndex="@bind(vm.selectedIndex)">
+				<tabs style="height:0px; width:0px;">
+				</tabs>
+				<tabpanels>
+				</tabpanels>
+			</tabbox>
+		</div>
+	</window>
+</zk>

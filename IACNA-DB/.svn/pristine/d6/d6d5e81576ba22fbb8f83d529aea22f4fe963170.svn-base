@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<project name="build project" default="run-maven" basedir=".">
+    <target name="run-maven">
+    	<exec dir="." executable="C:/maven/bin/mvn.bat"> 
+    		<arg line="clean compile package install" /> 
+    	</exec>
+    </target>
+</project>
